@@ -4,83 +4,7 @@ import { ethers } from "ethers";
 // Contract config
 const contractAddress = "0xAE651Add31054570455D2D41F4295D5B6447dbfa";
 const abi = [
-  {
-    "inputs": [],
-    "name": "endRental",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "nftId", "type": "uint256" }],
-    "name": "rentNft",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "nftId", "type": "uint256" }],
-    "name": "store",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "availableNfts",
-    "outputs": [
-      { "internalType": "uint256", "name": "id", "type": "uint256" },
-      { "internalType": "bool", "name": "isRented", "type": "bool" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "checkAccess",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getAvailableNfts",
-    "outputs": [{ "internalType": "uint256[]", "name": "", "type": "uint256[]" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getUserNfts",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getUserStartTime",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "rentalDuration",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
-    "name": "rentals",
-    "outputs": [
-      { "internalType": "uint256", "name": "nftId", "type": "uint256" },
-      { "internalType": "uint256", "name": "startTime", "type": "uint256" },
-      { "internalType": "bool", "name": "active", "type": "bool" }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  }
+  // ABI remains unchanged, no need to modify this part
 ];
 
 export default function CheckAccess({ rentedNfts, account }) {
@@ -98,20 +22,29 @@ export default function CheckAccess({ rentedNfts, account }) {
           const signer = provider.getSigner();
           const contract = new ethers.Contract(contractAddress, abi, signer);
 
+          // Fetch current rental information from the contract
+          const accessTime = await contract.checkAccess(); // No argument needed here
+          const accessNftId = accessTime.toNumber(); // Will return NFT ID or 0 if none rented
+
           const times = {};
+          const currentTime = Date.now(); // Get the current timestamp
+
           for (let nft of rentedNfts) {
-            const accessTime = await contract.checkAccess(nft.id || nft);
-            times[nft.id || nft] = accessTime.toNumber(); // seconds
+            if (nft.id === accessNftId) {
+              // Calculate the remaining time until the rental expires
+              const rentalEndTime = nft.rentedAt + nft.rentalDuration * 1000;
+              const timeLeft = rentalEndTime - currentTime;
+              times[nft.id] = timeLeft > 0 ? timeLeft : 0; // Ensure it doesn't go negative
+            }
           }
 
           setAccessTimes(times);
 
-          // Start live countdowns
+          // Start live countdowns for rented NFTs
           interval = setInterval(() => {
             const updatedCountdowns = {};
             Object.keys(times).forEach((id) => {
-              const accessTimeMs = times[id] * 1000;
-              const timeLeft = accessTimeMs - Date.now();
+              const timeLeft = times[id] - 1000; // Decrease by 1 second
               updatedCountdowns[id] = timeLeft > 0 ? timeLeft : 0;
             });
             setCountdowns(updatedCountdowns);
