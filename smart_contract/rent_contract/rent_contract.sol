@@ -1,48 +1,62 @@
 // SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.19;
 
-pragma solidity >=0.8.2 <0.9.0;
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
 
-/**
- * @title Storage
- * @dev Store & retrieve value in a variable
- * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
- */
-contract NFTRentContract {
+contract NFTRentContract is ERC721 {
+    using Counters for Counters.Counter;
+    Counters.Counter private _tokenIds;
 
-    uint256 number;
-    uint256 gameId;
+    // Maps tokenId to gameId
+    mapping(uint256 => uint256) public tokenGameId;
 
-    /**
-     * @dev Store value in variable
-     * @param num value to store
+    // Maps tokenId to rental timestamp (start time)
+    mapping(uint256 => uint256) public rentalStartTime;
+
+    // Maps user to their rented NFTs
+    mapping(address => uint256[]) public userNFTs;
+
+    constructor() ERC721("NFTRent", "NFR") {}
+
+    /*
+     * rentNft
+     * Called by frontend when user clicks "Rent"
+     * Mints a new NFT, tracks its gameId and start time
      */
-    function store(uint256 num) public {
-        number = num;
+    function rentNft(uint256 gameId) public {
+        _tokenIds.increment();
+        uint256 newTokenId = _tokenIds.current();
+
+        _mint(msg.sender, newTokenId);
+        tokenGameId[newTokenId] = gameId;
+        rentalStartTime[newTokenId] = block.timestamp;
+        userNFTs[msg.sender].push(newTokenId);
     }
 
-    /**
-     * @dev Return value 
-     * @return value of 'number'
+    /*
+     * checkAccess
+     * Returns the gameId of the user's most recently rented NFT
      */
-    function retrieve() public view returns (uint256){
-        return number;
+    function checkAccess() public view returns (uint256) {
+        uint256[] memory nfts = userNFTs[msg.sender];
+        if (nfts.length == 0) return 0;
+        return tokenGameId[nfts[nfts.length - 1]];
     }
 
-    
-    function rentNft(uint256 num) public {
-        gameId = num;
+    /*
+     * getAvailableNfts
+     * Placeholder: would return count or list of available NFTs to rent
+     */
+    function getAvailableNfts() public pure returns (uint256) {
+        return 42;
     }
 
-    function checkAccess() public view returns (uint256){
-        return gameId;
+    /*
+     * getUserNfts
+     * Returns the number of NFTs currently rented by the caller
+     */
+    function getUserNfts() public view returns (uint256) {
+        return userNFTs[msg.sender].length;
     }
-
-    function getAvailableNfts() public view returns (uint256){
-        return gameId;
-    }
-
-    function getUserNfts() public view returns (uint256){
-        return gameId;
-    }
-
 }
