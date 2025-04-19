@@ -1,109 +1,117 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.19;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
+contract NFTRentLight {
+    uint256 public rentalDuration = 5 minutes; // You can adjust this as needed
 
-contract NFTRentContract is ERC721 {
-    using Counters for Counters.Counter;
-    Counters.Counter private _tokenIds;
-
-    // Maps tokenId to gameId
-    mapping(uint256 => uint256) public tokenGameId;
-
-    // Maps tokenId to rental start timestamp
-    mapping(uint256 => uint256) public rentalStartTime;
-
-    // Rental duration: 5 minutes
-    uint256 public constant RENTAL_DURATION = 5 minutes;
-
-    // Keep track of all minted tokenIds
-    uint256[] private allTokenIds;
-
-    constructor() ERC721("NFTRent", "NFR") {}
-
-    /// @notice Admin function to mint NFTs and assign them to the contract (available for rent)
-    function store(uint256 gameId) public {
-        _tokenIds.increment();
-        uint256 newTokenId = _tokenIds.current();
-
-        _mint(address(this), newTokenId);
-        tokenGameId[newTokenId] = gameId;
-        allTokenIds.push(newTokenId);
+    struct NFT {
+        uint256 id;
+        bool isRented;
     }
 
-    /// @notice Rent an available NFT with the given gameId
-    function rentNft(uint256 gameId) public {
-        // Look for an available NFT with the desired gameId
-        for (uint256 i = 0; i < allTokenIds.length; i++) {
-            uint256 tokenId = allTokenIds[i];
+    struct Rental {
+        uint256 nftId;
+        uint256 startTime;
+        bool active;
+    }
 
-            if (
-                tokenGameId[tokenId] == gameId &&
-                _isAvailable(tokenId)
-            ) {
-                // Transfer to user
-                _transfer(address(this), msg.sender, tokenId);
-                rentalStartTime[tokenId] = block.timestamp;
-                return;
+    // Store available NFTs
+    NFT[] public availableNfts;
+
+    // Rentals mapped to user addresses
+    mapping(address => Rental) public rentals;
+
+    // --- ADMIN FUNCTION: Add NFTs to the rentable pool ---
+    function store(uint256 nftId) public {
+        availableNfts.push(NFT(nftId, false));
+    }
+
+    // --- Get all currently available NFTs ---
+    function getAvailableNfts() public view returns (uint256[] memory) {
+        uint256 count = 0;
+
+        // Count available
+        for (uint i = 0; i < availableNfts.length; i++) {
+            if (!availableNfts[i].isRented) {
+                count++;
             }
         }
 
-        revert("No available NFTs for this game");
+        uint256[] memory result = new uint256[](count);
+        uint256 idx = 0;
+        for (uint i = 0; i < availableNfts.length; i++) {
+            if (!availableNfts[i].isRented) {
+                result[idx++] = availableNfts[i].id;
+            }
+        }
+
+        return result;
     }
 
-    /// @notice Check access to a game (returns gameId if access is valid)
+    // --- Rent an available NFT ---
+    function rentNft(uint256 nftId) public {
+        require(!rentals[msg.sender].active, "Already renting");
+
+        bool found = false;
+        for (uint i = 0; i < availableNfts.length; i++) {
+            if (availableNfts[i].id == nftId && !availableNfts[i].isRented) {
+                availableNfts[i].isRented = true;
+                found = true;
+                break;
+            }
+        }
+
+        require(found, "NFT not available");
+
+        rentals[msg.sender] = Rental({
+            nftId: nftId,
+            startTime: block.timestamp,
+            active: true
+        });
+    }
+
+    // --- Check what NFT user has rented (0 if none) ---
     function checkAccess() public view returns (uint256) {
-        for (uint256 i = 0; i < allTokenIds.length; i++) {
-            uint256 tokenId = allTokenIds[i];
-            if (
-                ownerOf(tokenId) == msg.sender &&
-                rentalStartTime[tokenId] + RENTAL_DURATION > block.timestamp
-            ) {
-                return tokenGameId[tokenId];
-            }
+        Rental memory r = rentals[msg.sender];
+        if (!r.active) return 0;
+
+        // Auto-expire if time is up
+        if (block.timestamp > r.startTime + rentalDuration) {
+            return 0;
         }
-        return 0;
+
+        return r.nftId;
     }
 
-    /// @notice Returns number of available NFTs for rent
-    function getAvailableNfts() public view returns (uint256 count) {
-        for (uint256 i = 0; i < allTokenIds.length; i++) {
-            if (_isAvailable(allTokenIds[i])) {
-                count++;
-            }
-        }
+    // --- Get when current user's rental started ---
+    function getUserStartTime() public view returns (uint256) {
+        return rentals[msg.sender].startTime;
     }
 
-    /// @notice Returns the count of NFTs the user currently holds that are active (not expired)
-    function getUserNfts() public view returns (uint256 count) {
-        for (uint256 i = 0; i < allTokenIds.length; i++) {
-            uint256 tokenId = allTokenIds[i];
-            if (
-                ownerOf(tokenId) == msg.sender &&
-                rentalStartTime[tokenId] + RENTAL_DURATION > block.timestamp
-            ) {
-                count++;
+    // --- End rental early ---
+    function endRental() public {
+        require(rentals[msg.sender].active, "No active rental");
+
+        uint256 rentedId = rentals[msg.sender].nftId;
+
+        // Mark NFT as available again
+        for (uint i = 0; i < availableNfts.length; i++) {
+            if (availableNfts[i].id == rentedId) {
+                availableNfts[i].isRented = false;
+                break;
             }
         }
+
+        // Clear rental
+        rentals[msg.sender].active = false;
     }
 
-    /// @notice View helper to get access expiration for user's tokens (used by front-end)
-    function retrieve() public view returns (uint256) {
-        for (uint256 i = 0; i < allTokenIds.length; i++) {
-            uint256 tokenId = allTokenIds[i];
-            if (ownerOf(tokenId) == msg.sender) {
-                return rentalStartTime[tokenId];
-            }
+    // --- View function to show user's current NFT (if still valid) ---
+    function getUserNfts() public view returns (uint256) {
+        Rental memory r = rentals[msg.sender];
+        if (!r.active || block.timestamp > r.startTime + rentalDuration) {
+            return 0;
         }
-        return 0;
-    }
-
-    /// @dev Internal: check if an NFT is available to rent
-    function _isAvailable(uint256 tokenId) internal view returns (bool) {
-        return (
-            ownerOf(tokenId) == address(this) ||
-            rentalStartTime[tokenId] + RENTAL_DURATION <= block.timestamp
-        );
+        return r.nftId;
     }
 }
