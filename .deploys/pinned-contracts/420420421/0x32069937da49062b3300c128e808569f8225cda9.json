@@ -1,0 +1,34 @@
+{
+  "name": "NFTRentContract",
+  "address": "0x32069937da49062b3300c128e808569f8225cda9",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "num",
+          "type": "uint256"
+        }
+      ],
+      "name": "store",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "retrieve",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "filePath": "NFT_game-1745074358835/smart_contract/rent_contract/rent_contract.sol",
+  "pinnedAt": 1745081325117
+}

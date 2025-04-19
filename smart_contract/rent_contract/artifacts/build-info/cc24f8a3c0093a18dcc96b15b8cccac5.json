@@ -1,0 +1,873 @@
+{
+	"id": "cc24f8a3c0093a18dcc96b15b8cccac5",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.28",
+	"solcLongVersion": "0.8.28+commit.7893614a",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"smart_contract/rent_contract/rent_contract.sol": {
+				"content": "// SPDX-License-Identifier: GPL-3.0\r\n\r\npragma solidity >=0.8.2 <0.9.0;\r\n\r\n/**\r\n * @title Storage\r\n * @dev Store & retrieve value in a variable\r\n * @custom:dev-run-script ./scripts/deploy_with_ethers.ts\r\n */\r\ncontract NFTRentContract {\r\n\r\n    uint256 number;\r\n    uint256 gameId;\r\n\r\n    /**\r\n     * @dev Store value in variable\r\n     * @param num value to store\r\n     */\r\n    function store(uint256 num) public {\r\n        number = num;\r\n    }\r\n\r\n    /**\r\n     * @dev Return value \r\n     * @return value of 'number'\r\n     */\r\n    function retrieve() public view returns (uint256){\r\n        return number;\r\n    }\r\n\r\n    \r\n    function rentNft(uint256 num) public {\r\n        gameId = num;\r\n    }\r\n\r\n    function checkAccess() public view returns (uint256){\r\n        return gameId;\r\n    }\r\n\r\n    function getAvailableNfts() public view returns (uint256){\r\n        return gameId;\r\n    }\r\n\r\n    function getUserNfts() public view returns (uint256){\r\n        return gameId;\r\n    }\r\n\r\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"contracts": {
+			"smart_contract/rent_contract/rent_contract.sol": {
+				"NFTRentContract": {
+					"abi": [
+						{
+							"inputs": [],
+							"name": "checkAccess",
+							"outputs": [
+								{
+									"internalType": "uint256",
+									"name": "",
+									"type": "uint256"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"inputs": [],
+							"name": "getAvailableNfts",
+							"outputs": [
+								{
+									"internalType": "uint256",
+									"name": "",
+									"type": "uint256"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"inputs": [],
+							"name": "getUserNfts",
+							"outputs": [
+								{
+									"internalType": "uint256",
+									"name": "",
+									"type": "uint256"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"inputs": [
+								{
+									"internalType": "uint256",
+									"name": "num",
+									"type": "uint256"
+								}
+							],
+							"name": "rentNft",
+							"outputs": [],
+							"stateMutability": "nonpayable",
+							"type": "function"
+						},
+						{
+							"inputs": [],
+							"name": "retrieve",
+							"outputs": [
+								{
+									"internalType": "uint256",
+									"name": "",
+									"type": "uint256"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"inputs": [
+								{
+									"internalType": "uint256",
+									"name": "num",
+									"type": "uint256"
+								}
+							],
+							"name": "store",
+							"outputs": [],
+							"stateMutability": "nonpayable",
+							"type": "function"
+						}
+					],
+					"metadata": {
+						"optimizer_settings": {
+							"is_debug_logging_enabled": false,
+							"is_fallback_to_size_enabled": false,
+							"is_verify_each_enabled": false,
+							"level_back_end": "Aggressive",
+							"level_middle_end": "Aggressive",
+							"level_middle_end_size": "Zero"
+						},
+						"revive_pallet_version": null,
+						"revive_version": "0.1.0-dev.12+commit.66f9a4d.llvm-18.1.8",
+						"solc_metadata": "{\"compiler\":{\"version\":\"0.8.28+commit.7893614a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"checkAccess\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAvailableNfts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getUserNfts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"num\",\"type\":\"uint256\"}],\"name\":\"rentNft\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"retrieve\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"num\",\"type\":\"uint256\"}],\"name\":\"store\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"custom:dev-run-script\":\"./scripts/deploy_with_ethers.ts\",\"details\":\"Store & retrieve value in a variable\",\"kind\":\"dev\",\"methods\":{\"retrieve()\":{\"details\":\"Return value \",\"returns\":{\"_0\":\"value of 'number'\"}},\"store(uint256)\":{\"details\":\"Store value in variable\",\"params\":{\"num\":\"value to store\"}}},\"title\":\"Storage\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"smart_contract/rent_contract/rent_contract.sol\":\"NFTRentContract\"},\"evmVersion\":\"cancun\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"details\":{\"constantOptimizer\":false,\"cse\":false,\"deduplicate\":false,\"inliner\":false,\"jumpdestRemover\":false,\"orderLiterals\":false,\"peephole\":false,\"simpleCounterForLoopUncheckedIncrement\":true,\"yul\":false},\"runs\":200},\"remappings\":[]},\"sources\":{\"smart_contract/rent_contract/rent_contract.sol\":{\"keccak256\":\"0xc432b1f17feebe9efac262c71b4c561cf3cf7aea5a43c655adf7bfafb3b3a8d3\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://31b3ebca32f54f2a7b67af789b82e942b83e8f575bef633c535430dbf03314af\",\"dweb:/ipfs/QmP7kb7sX7MvTKMiETA58PMEiT8knBqj88j7iDDsX998fG\"]}},\"version\":1}",
+						"solc_version": "0.8.28+commit.7893614a.Emscripten.clang"
+					},
+					"devdoc": {
+						"custom:dev-run-script": "./scripts/deploy_with_ethers.ts",
+						"details": "Store & retrieve value in a variable",
+						"kind": "dev",
+						"methods": {
+							"retrieve()": {
+								"details": "Return value ",
+								"returns": {
+									"_0": "value of 'number'"
+								}
+							},
+							"store(uint256)": {
+								"details": "Store value in variable",
+								"params": {
+									"num": "value to store"
+								}
+							}
+						},
+						"title": "Storage",
+						"version": 1
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {},
+						"version": 1
+					},
+					"storageLayout": {
+						"storage": [
+							{
+								"astId": 4,
+								"contract": "smart_contract/rent_contract/rent_contract.sol:NFTRentContract",
+								"label": "number",
+								"offset": 0,
+								"slot": "0",
+								"type": "t_uint256"
+							},
+							{
+								"astId": 6,
+								"contract": "smart_contract/rent_contract/rent_contract.sol:NFTRentContract",
+								"label": "gameId",
+								"offset": 0,
+								"slot": "1",
+								"type": "t_uint256"
+							}
+						],
+						"types": {
+							"t_uint256": {
+								"encoding": "inplace",
+								"label": "uint256",
+								"numberOfBytes": "32"
+							}
+						}
+					},
+					"evm": {
+						"assembly": "// RO data = 0/0 bytes\n// RW data = 0/65552 bytes\n// Stack size = 16384 bytes\n\n// Instructions = 1285\n// Code size = 3843 bytes\n\n      : @0 (gas: 2)\n     0: i32 a2 = a0 >> 0x10\n     3: jump @6 if a2 != 0\n      : @1 (gas: 2)\n     6: a2 = 0x10001\n    11: jump @6 if a1 >=u a2\n      : @2 (gas: 4)\n    14: a1 = a1 + a0\n    17: i32 a1 = a1 + 0x1f\n    20: a1 = a1 & 0xffffffffffffffe0\n    23: jump @7 if a1 >=u 65537\n      : @3 (gas: 2)\n    29: a3 = i32 [0x20000]\n    34: jump @5 if a3 >=u a1\n      : @4 (gas: 4)\n    37: u32 [0x20000] = a1\n    42: a1 = 0x20010\n    47: a0 = a0 + a1\n    50: ret\n      : @5 (gas: 3)\n    52: a1 = 0x20010\n    57: a0 = a0 + a1\n    60: ret\n      : @6 (gas: 1)\n    62: trap\n      : @7 (gas: 1)\n    63: trap\n      : @8 (gas: 6)\n    64: sp = sp + 0xfffffffffffffff0\n    67: u64 [sp + 0x8] = ra\n    70: u64 [sp] = s0\n    72: s0 = a0 & 0x1\n    75: ecalli 2 // 'call_data_size'\n    77: fallthrough\n      : @9 (gas: 2)\n    78: u32 [0x20004] = a0\n    83: jump @11 if s0 == 0\n      : @10 (gas: 1)\n    86: ra = 2, jump @12\n      : @11 [@dyn 1] (gas: 1)\n    90: ra = 4, jump @26\n      : @12 [@dyn 2] (gas: 9)\n    95: sp = sp + 0xffffffffffffffc0\n    98: u64 [sp + 0x38] = ra\n   101: u64 [sp + 0x30] = s0\n   104: u64 [sp + 0x28] = s1\n   107: s0 = sp + 0x40\n   110: sp = sp & 0xffffffffffffffe0\n   113: a0 = 0x40\n   116: a1 = 0x20\n   119: ra = 6, jump @0\n      : @13 [@dyn 3] (gas: 39)\n   123: u8 [a0 + 31] = 0x80\n   128: u8 [a0 + 30] = 0\n   131: u8 [a0 + 29] = 0\n   134: u8 [a0 + 28] = 0\n   137: u8 [a0 + 27] = 0\n   140: u8 [a0 + 26] = 0\n   143: u8 [a0 + 25] = 0\n   146: u8 [a0 + 24] = 0\n   149: u8 [a0 + 23] = 0\n   152: u8 [a0 + 22] = 0\n   155: u8 [a0 + 21] = 0\n   158: u8 [a0 + 20] = 0\n   161: u8 [a0 + 19] = 0\n   164: u8 [a0 + 18] = 0\n   167: u8 [a0 + 17] = 0\n   170: u8 [a0 + 16] = 0\n   173: u8 [a0 + 15] = 0\n   176: u8 [a0 + 14] = 0\n   179: u8 [a0 + 13] = 0\n   182: u8 [a0 + 12] = 0\n   185: u8 [a0 + 11] = 0\n   188: u8 [a0 + 10] = 0\n   191: u8 [a0 + 9] = 0\n   194: u8 [a0 + 8] = 0\n   197: u8 [a0 + 7] = 0\n   200: u8 [a0 + 6] = 0\n   203: u8 [a0 + 5] = 0\n   206: u8 [a0 + 4] = 0\n   209: u8 [a0 + 3] = 0\n   212: u8 [a0 + 2] = 0\n   215: u8 [a0 + 1] = 0\n   218: u8 [a0 + 0] = 0\n   220: u64 [sp + 24] = 0\n   223: u64 [sp + 0] = 0\n   225: u64 [sp + 8] = 0\n   228: u64 [sp + 16] = 0\n   231: i32 a0 = sp + 0\n   233: ecalli 7 // 'value_transferred'\n   235: fallthrough\n      : @14 (gas: 8)\n   236: a0 = u64 [sp + 0x10]\n   239: a1 = u64 [sp + 0x18]\n   242: a2 = u64 [sp + 0x8]\n   245: a3 = u64 [sp]\n   247: a1 = a1 | a2\n   250: a0 = a0 | a3\n   253: a0 = a0 | a1\n   256: jump @18 if a0 != 0\n      : @15 (gas: 3)\n   260: a0 = 0x40\n   263: a1 = 0x20\n   266: ra = 8, jump @0\n      : @16 [@dyn 4] (gas: 100)\n   271: a1 = u8 [a0 + 0x11]\n   274: a2 = u8 [a0 + 0x10]\n   277: a3 = u8 [a0 + 0x12]\n   280: a4 = u8 [a0 + 0x13]\n   283: a1 = a1 << 0x8\n   286: a1 = a1 | a2\n   289: a3 = a3 << 0x10\n   292: a4 = a4 << 0x18\n   295: a3 = a3 | a4\n   298: a1 = a1 | a3\n   301: a2 = u8 [a0 + 0x15]\n   304: a3 = u8 [a0 + 0x14]\n   307: a4 = u8 [a0 + 0x16]\n   310: a5 = u8 [a0 + 0x17]\n   313: a2 = a2 << 0x8\n   316: a2 = a2 | a3\n   319: a4 = a4 << 0x10\n   322: a5 = a5 << 0x18\n   325: a4 = a4 | a5\n   328: a2 = a2 | a4\n   331: a2 = a2 << 0x20\n   334: t0 = a2 | a1\n   337: a2 = u8 [a0 + 0x1]\n   340: a3 = u8 [a0]\n   342: a4 = u8 [a0 + 0x2]\n   345: a5 = u8 [a0 + 0x3]\n   348: a2 = a2 << 0x8\n   351: a2 = a2 | a3\n   354: a4 = a4 << 0x10\n   357: a5 = a5 << 0x18\n   360: a4 = a4 | a5\n   363: a2 = a2 | a4\n   366: a3 = u8 [a0 + 0x5]\n   369: a4 = u8 [a0 + 0x4]\n   372: a5 = u8 [a0 + 0x6]\n   375: s1 = u8 [a0 + 0x7]\n   378: a3 = a3 << 0x8\n   381: a3 = a3 | a4\n   384: a5 = a5 << 0x10\n   387: s1 = s1 << 0x18\n   390: a5 = a5 | s1\n   393: a3 = a3 | a5\n   396: a3 = a3 << 0x20\n   399: a2 = a2 | a3\n   402: a3 = u8 [a0 + 0x19]\n   405: a4 = u8 [a0 + 0x18]\n   408: a5 = u8 [a0 + 0x1a]\n   411: s1 = u8 [a0 + 0x1b]\n   414: a3 = a3 << 0x8\n   417: a3 = a3 | a4\n   420: a5 = a5 << 0x10\n   423: s1 = s1 << 0x18\n   426: a5 = a5 | s1\n   429: a3 = a3 | a5\n   432: a4 = u8 [a0 + 0x1d]\n   435: a5 = u8 [a0 + 0x1c]\n   438: s1 = u8 [a0 + 0x1e]\n   441: a1 = u8 [a0 + 0x1f]\n   444: a4 = a4 << 0x8\n   447: a4 = a4 | a5\n   450: s1 = s1 << 0x10\n   453: a1 = a1 << 0x18\n   456: a1 = a1 | s1\n   459: a1 = a1 | a4\n   462: a1 = a1 << 0x20\n   465: a3 = a3 | a1\n   468: a1 = u8 [a0 + 0x9]\n   471: a4 = u8 [a0 + 0x8]\n   474: a5 = u8 [a0 + 0xa]\n   477: s1 = u8 [a0 + 0xb]\n   480: a1 = a1 << 0x8\n   483: a1 = a1 | a4\n   486: a5 = a5 << 0x10\n   489: s1 = s1 << 0x18\n   492: a5 = a5 | s1\n   495: a1 = a1 | a5\n   498: a4 = u8 [a0 + 0xd]\n   501: a5 = u8 [a0 + 0xc]\n   504: s1 = u8 [a0 + 0xe]\n   507: a0 = u8 [a0 + 0xf]\n   510: a4 = a4 << 0x8\n   513: a4 = a4 | a5\n   516: s1 = s1 << 0x10\n   519: a0 = a0 << 0x18\n   522: a0 = a0 | s1\n   525: a0 = a0 | a4\n   528: a0 = a0 << 0x20\n   531: a0 = a0 | a1\n   534: a0 = reverse a0\n   536: s1 = reverse a3\n   538: a1 = reverse a2\n   540: a2 = reverse t0\n   542: a1 = a1 | a2\n   545: a2 = s1 | a0\n   548: a2 = a2 | a1\n   551: a2 = a2 >> 0x20\n   554: a0 = a0 | a1\n   557: a0 = a0 << 0x20\n   560: a0 = a0 | a2\n   563: jump @20 if a0 == 0\n      : @17 (gas: 1)\n   566: trap\n      : @18 (gas: 3)\n   567: a0 = 0\n   569: a1 = 0\n   571: ra = 10, jump @0\n      : @19 [@dyn 5] (gas: 5)\n   576: i32 a1 = a0 + 0\n   578: a0 = 0x1\n   581: a2 = 0\n   583: ecalli 4 // 'seal_return'\n   585: fallthrough\n      : @20 (gas: 4)\n   586: i32 s1 = s1 + 0\n   588: a0 = s1\n   590: a1 = 0\n   592: ra = 12, jump @0\n      : @21 [@dyn 6] (gas: 5)\n   597: i32 a0 = a0 + 0\n   599: a1 = 0\n   601: a2 = 0\n   603: ecalli 0 // 'call_data_copy'\n   604: fallthrough\n      : @22 (gas: 2)\n   605: a1 = i32 [0x20008]\n   610: jump @24 if a1 == 0\n      : @23 (gas: 4)\n   613: a0 = 0x30010\n   618: i32 a0 = a0 + 0\n   620: ecalli 5 // 'set_immutable_data'\n   622: fallthrough\n      : @24 (gas: 3)\n   623: a0 = s1\n   625: a1 = 0\n   627: ra = 14, jump @0\n      : @25 [@dyn 7] (gas: 6)\n   632: i32 a1 = a0 + 0\n   634: a0 = 0\n   636: a2 = 0\n   638: ra = 0x10\n   641: ecalli 4 // 'seal_return'\n   643: fallthrough\n      : @26 [@dyn 8] (gas: 8)\n   644: sp = sp + 0xffffffffffffffc0\n   647: u64 [sp + 0x38] = ra\n   650: u64 [sp + 0x30] = s0\n   653: s0 = sp + 0x40\n   656: sp = sp & 0xffffffffffffffe0\n   659: a0 = 0x40\n   662: a1 = 0x20\n   665: ra = 18, jump @0\n      : @27 [@dyn 9] (gas: 34)\n   670: u8 [a0 + 31] = 0x80\n   675: u8 [a0 + 30] = 0\n   678: u8 [a0 + 29] = 0\n   681: u8 [a0 + 28] = 0\n   684: u8 [a0 + 27] = 0\n   687: u8 [a0 + 26] = 0\n   690: u8 [a0 + 25] = 0\n   693: u8 [a0 + 24] = 0\n   696: u8 [a0 + 23] = 0\n   699: u8 [a0 + 22] = 0\n   702: u8 [a0 + 21] = 0\n   705: u8 [a0 + 20] = 0\n   708: u8 [a0 + 19] = 0\n   711: u8 [a0 + 18] = 0\n   714: u8 [a0 + 17] = 0\n   717: u8 [a0 + 16] = 0\n   720: u8 [a0 + 15] = 0\n   723: u8 [a0 + 14] = 0\n   726: u8 [a0 + 13] = 0\n   729: u8 [a0 + 12] = 0\n   732: u8 [a0 + 11] = 0\n   735: u8 [a0 + 10] = 0\n   738: u8 [a0 + 9] = 0\n   741: u8 [a0 + 8] = 0\n   744: u8 [a0 + 7] = 0\n   747: u8 [a0 + 3] = 0\n   750: u8 [a0 + 2] = 0\n   753: u8 [a0 + 1] = 0\n   756: u8 [a0 + 0] = 0\n   758: a1 = i32 [0x20004]\n   763: u8 [a0 + 6] = 0\n   766: u8 [a0 + 5] = 0\n   769: u8 [a0 + 4] = 0\n   772: jump @38 if a1 <u 4\n      : @28 (gas: 4)\n   776: i32 a0 = sp + 0\n   778: a1 = 0\n   780: ecalli 1 // 'call_data_load'\n   782: fallthrough\n      : @29 (gas: 3)\n   783: a0 = i32 [sp + 0x1c]\n   786: a1 = 0x2e64d000\n   792: jump @34 if a0 >s 778358464\n      : @30 (gas: 1)\n   799: jump @33 if a0 == 2215258808\n      : @31 (gas: 1)\n   806: jump @33 if a0 == 3935928324\n      : @32 (gas: 1)\n   813: jump @38 if a0 != 3971023157\n      : @33 (gas: 1)\n   820: ra = 20, jump @73\n      : @34 [@dyn 10] (gas: 2)\n   825: i32 a1 = a1 + 0xfffffffffffffec1\n   829: jump @39 if a0 == a1\n      : @35 (gas: 1)\n   832: jump @40 if a0 == 1616328221\n      : @36 (gas: 1)\n   839: jump @38 if a0 != 1942413033\n      : @37 (gas: 1)\n   846: ra = 22, jump @63\n      : @38 [@dyn 11] (gas: 1)\n   851: ra = 24, jump @84\n      : @39 [@dyn 12] (gas: 14)\n   856: ra = 0x1a\n   859: sp = sp + 0xffffffffffffff60\n   863: u64 [sp + 0x98] = ra\n   867: u64 [sp + 0x90] = s0\n   871: u64 [sp + 0x88] = s1\n   875: s0 = sp + 0xa0\n   879: sp = sp & 0xffffffffffffffe0\n   882: u64 [sp + 56] = 0\n   885: u64 [sp + 48] = 0\n   888: u64 [sp + 40] = 0\n   891: u64 [sp + 32] = 0\n   894: i32 a0 = sp + 0x20\n   897: ecalli 7 // 'value_transferred'\n   899: jump @43\n      : @40 [@dyn 13] (gas: 14)\n   902: ra = 0x1c\n   905: sp = sp + 0xffffffffffffff40\n   909: u64 [sp + 0xb8] = ra\n   913: u64 [sp + 0xb0] = s0\n   917: u64 [sp + 0xa8] = s1\n   921: s0 = sp + 0xc0\n   925: sp = sp & 0xffffffffffffffe0\n   928: u64 [sp + 56] = 0\n   931: u64 [sp + 48] = 0\n   934: u64 [sp + 40] = 0\n   937: u64 [sp + 32] = 0\n   940: i32 a0 = sp + 0x20\n   943: ecalli 7 // 'value_transferred'\n   945: jump @54\n      : @41 [@dyn 14] (gas: 7)\n   948: sp = sp + 0xfffffffffffffff0\n   951: u64 [sp + 0x8] = ra\n   954: u64 [sp] = s0\n   956: s0 = a0\n   958: a0 = 0x40\n   961: a1 = 0x20\n   964: ra = 30, jump @0\n      : @42 [@dyn 15] (gas: 100)\n   969: a1 = u8 [a0 + 0x1]\n   972: a2 = u8 [a0]\n   974: a3 = u8 [a0 + 0x2]\n   977: a4 = u8 [a0 + 0x3]\n   980: a1 = a1 << 0x8\n   983: a1 = a1 | a2\n   986: a3 = a3 << 0x10\n   989: a4 = a4 << 0x18\n   992: a3 = a3 | a4\n   995: a1 = a1 | a3\n   998: a2 = u8 [a0 + 0x5]\n  1001: a3 = u8 [a0 + 0x4]\n  1004: a4 = u8 [a0 + 0x6]\n  1007: a5 = u8 [a0 + 0x7]\n  1010: a2 = a2 << 0x8\n  1013: a2 = a2 | a3\n  1016: a4 = a4 << 0x10\n  1019: a5 = a5 << 0x18\n  1022: a4 = a4 | a5\n  1025: a2 = a2 | a4\n  1028: a2 = a2 << 0x20\n  1031: t0 = a2 | a1\n  1034: a2 = u8 [a0 + 0x9]\n  1037: a3 = u8 [a0 + 0x8]\n  1040: a4 = u8 [a0 + 0xa]\n  1043: a5 = u8 [a0 + 0xb]\n  1046: a2 = a2 << 0x8\n  1049: a2 = a2 | a3\n  1052: a4 = a4 << 0x10\n  1055: a5 = a5 << 0x18\n  1058: a4 = a4 | a5\n  1061: a2 = a2 | a4\n  1064: a3 = u8 [a0 + 0xd]\n  1067: a4 = u8 [a0 + 0xc]\n  1070: a5 = u8 [a0 + 0xe]\n  1073: a1 = u8 [a0 + 0xf]\n  1076: a3 = a3 << 0x8\n  1079: a3 = a3 | a4\n  1082: a5 = a5 << 0x10\n  1085: a1 = a1 << 0x18\n  1088: a1 = a1 | a5\n  1091: a1 = a1 | a3\n  1094: a1 = a1 << 0x20\n  1097: t1 = a1 | a2\n  1100: a1 = u8 [a0 + 0x11]\n  1103: a3 = u8 [a0 + 0x10]\n  1106: a4 = u8 [a0 + 0x12]\n  1109: a5 = u8 [a0 + 0x13]\n  1112: a1 = a1 << 0x8\n  1115: a1 = a1 | a3\n  1118: a4 = a4 << 0x10\n  1121: a5 = a5 << 0x18\n  1124: a4 = a4 | a5\n  1127: a1 = a1 | a4\n  1130: a3 = u8 [a0 + 0x15]\n  1133: a4 = u8 [a0 + 0x14]\n  1136: a5 = u8 [a0 + 0x16]\n  1139: a2 = u8 [a0 + 0x17]\n  1142: a3 = a3 << 0x8\n  1145: a3 = a3 | a4\n  1148: a5 = a5 << 0x10\n  1151: a2 = a2 << 0x18\n  1154: a2 = a2 | a5\n  1157: a2 = a2 | a3\n  1160: a2 = a2 << 0x20\n  1163: a3 = a2 | a1\n  1166: a1 = u8 [a0 + 0x19]\n  1169: a2 = u8 [a0 + 0x18]\n  1172: a4 = u8 [a0 + 0x1a]\n  1175: a5 = u8 [a0 + 0x1b]\n  1178: a1 = a1 << 0x8\n  1181: a1 = a1 | a2\n  1184: a4 = a4 << 0x10\n  1187: a5 = a5 << 0x18\n  1190: a4 = a4 | a5\n  1193: a1 = a1 | a4\n  1196: a2 = u8 [a0 + 0x1d]\n  1199: a4 = u8 [a0 + 0x1c]\n  1202: a5 = u8 [a0 + 0x1e]\n  1205: a0 = u8 [a0 + 0x1f]\n  1208: a2 = a2 << 0x8\n  1211: a2 = a2 | a4\n  1214: a5 = a5 << 0x10\n  1217: a0 = a0 << 0x18\n  1220: a0 = a0 | a5\n  1223: a0 = a0 | a2\n  1226: a0 = a0 << 0x20\n  1229: a0 = a0 | a1\n  1232: a0 = reverse a0\n  1234: a1 = reverse a3\n  1236: a2 = reverse t1\n  1238: a3 = reverse t0\n  1240: u64 [s0 + 0x18] = a3\n  1243: u64 [s0 + 0x10] = a2\n  1246: u64 [s0 + 0x8] = a1\n  1249: u64 [s0] = a0\n  1251: ra = u64 [sp + 0x8]\n  1254: s0 = u64 [sp]\n  1256: sp = sp + 0x10\n  1259: ret\n      : @43 (gas: 8)\n  1261: a0 = u64 [sp + 0x30]\n  1264: a1 = u64 [sp + 0x38]\n  1267: a2 = u64 [sp + 0x28]\n  1270: a3 = u64 [sp + 0x20]\n  1273: a1 = a1 | a2\n  1276: a0 = a0 | a3\n  1279: a0 = a0 | a1\n  1282: jump @48 if a0 != 0\n      : @44 (gas: 2)\n  1286: a0 = i32 [0x20004]\n  1291: jump @48 if a0 <=u 3\n      : @45 (gas: 26)\n  1296: u64 [sp + 88] = 0\n  1299: u64 [sp + 80] = 0\n  1302: u64 [sp + 72] = 0\n  1305: u64 [sp + 64] = 0\n  1308: u64 [sp + 120] = 0\n  1311: u64 [sp + 112] = 0\n  1314: u64 [sp + 104] = 0\n  1317: u64 [sp + 96] = 0\n  1320: u32 [sp + 128] = 0x20\n  1325: i32 a1 = sp + 0x40\n  1328: i32 a3 = sp + 0x60\n  1331: i32 a4 = sp + 0x80\n  1335: a2 = 0xffffffffffffffff\n  1338: a0 = 0\n  1340: ecalli 3 // 'get_storage'\n  1342: a0 = u64 [sp + 0x78]\n  1345: u64 [sp] = a0\n  1347: a0 = u64 [sp + 0x70]\n  1350: u64 [sp + 0x8] = a0\n  1353: a0 = u64 [sp + 0x68]\n  1356: u64 [sp + 0x10] = a0\n  1359: a0 = u64 [sp + 0x60]\n  1362: u64 [sp + 0x18] = a0\n  1365: a0 = 0x40\n  1368: a1 = 0x20\n  1371: ra = 32, jump @0\n      : @46 [@dyn 16] (gas: 100)\n  1376: a1 = u8 [a0 + 0x11]\n  1379: a2 = u8 [a0 + 0x10]\n  1382: a3 = u8 [a0 + 0x12]\n  1385: a4 = u8 [a0 + 0x13]\n  1388: a1 = a1 << 0x8\n  1391: a1 = a1 | a2\n  1394: a3 = a3 << 0x10\n  1397: a4 = a4 << 0x18\n  1400: a3 = a3 | a4\n  1403: a1 = a1 | a3\n  1406: a2 = u8 [a0 + 0x15]\n  1409: a3 = u8 [a0 + 0x14]\n  1412: a4 = u8 [a0 + 0x16]\n  1415: a5 = u8 [a0 + 0x17]\n  1418: a2 = a2 << 0x8\n  1421: a2 = a2 | a3\n  1424: a4 = a4 << 0x10\n  1427: a5 = a5 << 0x18\n  1430: a4 = a4 | a5\n  1433: a2 = a2 | a4\n  1436: a2 = a2 << 0x20\n  1439: t0 = a2 | a1\n  1442: a2 = u8 [a0 + 0x1]\n  1445: a3 = u8 [a0]\n  1447: a4 = u8 [a0 + 0x2]\n  1450: a5 = u8 [a0 + 0x3]\n  1453: a2 = a2 << 0x8\n  1456: a2 = a2 | a3\n  1459: a4 = a4 << 0x10\n  1462: a5 = a5 << 0x18\n  1465: a4 = a4 | a5\n  1468: a2 = a2 | a4\n  1471: a3 = u8 [a0 + 0x5]\n  1474: a4 = u8 [a0 + 0x4]\n  1477: a5 = u8 [a0 + 0x6]\n  1480: s1 = u8 [a0 + 0x7]\n  1483: a3 = a3 << 0x8\n  1486: a3 = a3 | a4\n  1489: a5 = a5 << 0x10\n  1492: s1 = s1 << 0x18\n  1495: a5 = a5 | s1\n  1498: a3 = a3 | a5\n  1501: a3 = a3 << 0x20\n  1504: a2 = a2 | a3\n  1507: a3 = u8 [a0 + 0x19]\n  1510: a4 = u8 [a0 + 0x18]\n  1513: a5 = u8 [a0 + 0x1a]\n  1516: s1 = u8 [a0 + 0x1b]\n  1519: a3 = a3 << 0x8\n  1522: a3 = a3 | a4\n  1525: a5 = a5 << 0x10\n  1528: s1 = s1 << 0x18\n  1531: a5 = a5 | s1\n  1534: a3 = a3 | a5\n  1537: a4 = u8 [a0 + 0x1d]\n  1540: a5 = u8 [a0 + 0x1c]\n  1543: s1 = u8 [a0 + 0x1e]\n  1546: a1 = u8 [a0 + 0x1f]\n  1549: a4 = a4 << 0x8\n  1552: a4 = a4 | a5\n  1555: s1 = s1 << 0x10\n  1558: a1 = a1 << 0x18\n  1561: a1 = a1 | s1\n  1564: a1 = a1 | a4\n  1567: a1 = a1 << 0x20\n  1570: a3 = a3 | a1\n  1573: a1 = u8 [a0 + 0x9]\n  1576: a4 = u8 [a0 + 0x8]\n  1579: a5 = u8 [a0 + 0xa]\n  1582: s1 = u8 [a0 + 0xb]\n  1585: a1 = a1 << 0x8\n  1588: a1 = a1 | a4\n  1591: a5 = a5 << 0x10\n  1594: s1 = s1 << 0x18\n  1597: a5 = a5 | s1\n  1600: a1 = a1 | a5\n  1603: a4 = u8 [a0 + 0xd]\n  1606: a5 = u8 [a0 + 0xc]\n  1609: s1 = u8 [a0 + 0xe]\n  1612: a0 = u8 [a0 + 0xf]\n  1615: a4 = a4 << 0x8\n  1618: a4 = a4 | a5\n  1621: s1 = s1 << 0x10\n  1624: a0 = a0 << 0x18\n  1627: a0 = a0 | s1\n  1630: a0 = a0 | a4\n  1633: a0 = a0 << 0x20\n  1636: a0 = a0 | a1\n  1639: a1 = reverse a0\n  1641: a0 = reverse a3\n  1643: a2 = reverse a2\n  1645: a3 = reverse t0\n  1647: a2 = a2 | a3\n  1650: a3 = a0 | a1\n  1653: a3 = a3 | a2\n  1656: a3 = a3 >> 0x20\n  1659: a1 = a1 | a2\n  1662: a1 = a1 << 0x20\n  1665: a1 = a1 | a3\n  1668: jump @50 if a1 == 0\n      : @47 (gas: 1)\n  1671: trap\n      : @48 (gas: 3)\n  1672: a0 = 0\n  1674: a1 = 0\n  1676: ra = 34, jump @0\n      : @49 [@dyn 17] (gas: 5)\n  1681: i32 a1 = a0 + 0\n  1683: a0 = 0x1\n  1686: a2 = 0\n  1688: ecalli 4 // 'seal_return'\n  1690: fallthrough\n      : @50 (gas: 4)\n  1691: i32 s1 = a0 + 0\n  1693: a1 = 0x20\n  1696: a0 = s1\n  1698: ra = 36, jump @0\n      : @51 [@dyn 18] (gas: 71)\n  1703: a1 = u64 [sp]\n  1705: a1 = reverse a1\n  1707: a2 = u64 [sp + 0x8]\n  1710: a2 = reverse a2\n  1712: a3 = u64 [sp + 0x10]\n  1715: a3 = reverse a3\n  1717: a4 = u64 [sp + 0x18]\n  1720: a4 = reverse a4\n  1722: a5 = a4 >> 0x38\n  1725: u8 [a0 + 0x1f] = a5\n  1728: a5 = a4 >> 0x30\n  1731: u8 [a0 + 0x1e] = a5\n  1734: a5 = a4 >> 0x28\n  1737: u8 [a0 + 0x1d] = a5\n  1740: a5 = a4 >> 0x20\n  1743: u8 [a0 + 0x1c] = a5\n  1746: a5 = a4 >> 0x18\n  1749: u8 [a0 + 0x1b] = a5\n  1752: a5 = a4 >> 0x10\n  1755: u8 [a0 + 0x1a] = a5\n  1758: a5 = a4 >> 0x8\n  1761: u8 [a0 + 0x19] = a5\n  1764: u8 [a0 + 0x18] = a4\n  1767: u8 [a0 + 0x10] = a3\n  1770: a4 = a3 >> 0x38\n  1773: u8 [a0 + 0x17] = a4\n  1776: a4 = a3 >> 0x30\n  1779: u8 [a0 + 0x16] = a4\n  1782: a4 = a3 >> 0x28\n  1785: u8 [a0 + 0x15] = a4\n  1788: a4 = a3 >> 0x20\n  1791: u8 [a0 + 0x14] = a4\n  1794: a4 = a3 >> 0x18\n  1797: u8 [a0 + 0x13] = a4\n  1800: a4 = a3 >> 0x10\n  1803: u8 [a0 + 0x12] = a4\n  1806: a3 = a3 >> 0x8\n  1809: u8 [a0 + 0x11] = a3\n  1812: u8 [a0 + 0x8] = a2\n  1815: a3 = a2 >> 0x38\n  1818: u8 [a0 + 0xf] = a3\n  1821: a3 = a2 >> 0x30\n  1824: u8 [a0 + 0xe] = a3\n  1827: a3 = a2 >> 0x28\n  1830: u8 [a0 + 0xd] = a3\n  1833: a3 = a2 >> 0x20\n  1836: u8 [a0 + 0xc] = a3\n  1839: a3 = a2 >> 0x18\n  1842: u8 [a0 + 0xb] = a3\n  1845: a3 = a2 >> 0x10\n  1848: u8 [a0 + 0xa] = a3\n  1851: a2 = a2 >> 0x8\n  1854: u8 [a0 + 0x9] = a2\n  1857: u8 [a0] = a1\n  1859: a2 = a1 >> 0x38\n  1862: u8 [a0 + 0x7] = a2\n  1865: a2 = a1 >> 0x30\n  1868: u8 [a0 + 0x6] = a2\n  1871: a2 = a1 >> 0x28\n  1874: u8 [a0 + 0x5] = a2\n  1877: a2 = a1 >> 0x20\n  1880: u8 [a0 + 0x4] = a2\n  1883: a2 = a1 >> 0x18\n  1886: u8 [a0 + 0x3] = a2\n  1889: a2 = a1 >> 0x10\n  1892: u8 [a0 + 0x2] = a2\n  1895: a1 = a1 >> 0x8\n  1898: u8 [a0 + 0x1] = a1\n  1901: a1 = 0x20\n  1904: a0 = s1\n  1906: ra = 38, jump @0\n      : @52 [@dyn 19] (gas: 6)\n  1911: i32 a1 = a0 + 0\n  1913: a2 = 0x20\n  1916: a0 = 0\n  1918: ra = 0x28\n  1921: ecalli 4 // 'seal_return'\n  1923: fallthrough\n      : @53 [@dyn 20] (gas: 1)\n  1924: ret\n      : @54 (gas: 8)\n  1926: a0 = u64 [sp + 0x30]\n  1929: a1 = u64 [sp + 0x38]\n  1932: a2 = u64 [sp + 0x28]\n  1935: a3 = u64 [sp + 0x20]\n  1938: a1 = a1 | a2\n  1941: a0 = a0 | a3\n  1944: a0 = a0 | a1\n  1947: jump @59 if a0 != 0\n      : @55 (gas: 2)\n  1951: a0 = i32 [0x20004]\n  1956: jump @59 if a0 <=u 35\n      : @56 (gas: 45)\n  1961: i32 a0 = sp + 0x80\n  1965: a1 = 0x4\n  1968: ecalli 1 // 'call_data_load'\n  1970: a0 = u64 [sp + 0x80]\n  1974: u64 [sp + 0x18] = a0\n  1977: a0 = u64 [sp + 0x88]\n  1981: u64 [sp + 0x10] = a0\n  1984: a0 = u64 [sp + 0x90]\n  1988: u64 [sp + 0x8] = a0\n  1991: s1 = u64 [sp + 0x98]\n  1995: u64 [sp + 120] = 0\n  1998: u64 [sp + 112] = 0\n  2001: u64 [sp + 104] = 0\n  2004: u64 [sp + 96] = 0\n  2007: u64 [sp + 152] = 0\n  2011: u64 [sp + 144] = 0\n  2015: u64 [sp + 136] = 0\n  2019: u64 [sp + 128] = 0\n  2023: u32 [sp + 64] = 0x20\n  2027: i32 a1 = sp + 0x60\n  2030: i32 a3 = sp + 0x80\n  2034: i32 a4 = sp + 0x40\n  2037: a2 = 0xffffffffffffffff\n  2040: a0 = 0\n  2042: ecalli 3 // 'get_storage'\n  2044: u64 [sp + 120] = 0\n  2047: u64 [sp + 112] = 0\n  2050: u64 [sp + 104] = 0\n  2053: u64 [sp + 96] = 0\n  2056: u64 [sp + 0x98] = s1\n  2060: a0 = u64 [sp + 0x8]\n  2063: u64 [sp + 0x90] = a0\n  2067: a0 = u64 [sp + 0x10]\n  2070: u64 [sp + 0x88] = a0\n  2074: a0 = u64 [sp + 0x18]\n  2077: u64 [sp + 0x80] = a0\n  2081: i32 a1 = sp + 0x60\n  2084: i32 a3 = sp + 0x80\n  2088: a2 = 0xffffffffffffffff\n  2091: a4 = 0x20\n  2094: a0 = 0\n  2096: ecalli 6 // 'set_storage'\n  2098: a0 = 0x40\n  2101: a1 = 0x20\n  2104: ra = 42, jump @0\n      : @57 [@dyn 21] (gas: 100)\n  2109: a1 = u8 [a0 + 0x11]\n  2112: a2 = u8 [a0 + 0x10]\n  2115: a3 = u8 [a0 + 0x12]\n  2118: a4 = u8 [a0 + 0x13]\n  2121: a1 = a1 << 0x8\n  2124: a1 = a1 | a2\n  2127: a3 = a3 << 0x10\n  2130: a4 = a4 << 0x18\n  2133: a3 = a3 | a4\n  2136: a1 = a1 | a3\n  2139: a2 = u8 [a0 + 0x15]\n  2142: a3 = u8 [a0 + 0x14]\n  2145: a4 = u8 [a0 + 0x16]\n  2148: a5 = u8 [a0 + 0x17]\n  2151: a2 = a2 << 0x8\n  2154: a2 = a2 | a3\n  2157: a4 = a4 << 0x10\n  2160: a5 = a5 << 0x18\n  2163: a4 = a4 | a5\n  2166: a2 = a2 | a4\n  2169: a2 = a2 << 0x20\n  2172: t0 = a2 | a1\n  2175: a2 = u8 [a0 + 0x1]\n  2178: a3 = u8 [a0]\n  2180: a4 = u8 [a0 + 0x2]\n  2183: a5 = u8 [a0 + 0x3]\n  2186: a2 = a2 << 0x8\n  2189: a2 = a2 | a3\n  2192: a4 = a4 << 0x10\n  2195: a5 = a5 << 0x18\n  2198: a4 = a4 | a5\n  2201: a2 = a2 | a4\n  2204: a3 = u8 [a0 + 0x5]\n  2207: a4 = u8 [a0 + 0x4]\n  2210: a5 = u8 [a0 + 0x6]\n  2213: s1 = u8 [a0 + 0x7]\n  2216: a3 = a3 << 0x8\n  2219: a3 = a3 | a4\n  2222: a5 = a5 << 0x10\n  2225: s1 = s1 << 0x18\n  2228: a5 = a5 | s1\n  2231: a3 = a3 | a5\n  2234: a3 = a3 << 0x20\n  2237: a2 = a2 | a3\n  2240: a3 = u8 [a0 + 0x19]\n  2243: a4 = u8 [a0 + 0x18]\n  2246: a5 = u8 [a0 + 0x1a]\n  2249: s1 = u8 [a0 + 0x1b]\n  2252: a3 = a3 << 0x8\n  2255: a3 = a3 | a4\n  2258: a5 = a5 << 0x10\n  2261: s1 = s1 << 0x18\n  2264: a5 = a5 | s1\n  2267: a3 = a3 | a5\n  2270: a4 = u8 [a0 + 0x1d]\n  2273: a5 = u8 [a0 + 0x1c]\n  2276: s1 = u8 [a0 + 0x1e]\n  2279: a1 = u8 [a0 + 0x1f]\n  2282: a4 = a4 << 0x8\n  2285: a4 = a4 | a5\n  2288: s1 = s1 << 0x10\n  2291: a1 = a1 << 0x18\n  2294: a1 = a1 | s1\n  2297: a1 = a1 | a4\n  2300: a1 = a1 << 0x20\n  2303: a3 = a3 | a1\n  2306: a1 = u8 [a0 + 0x9]\n  2309: a4 = u8 [a0 + 0x8]\n  2312: a5 = u8 [a0 + 0xa]\n  2315: s1 = u8 [a0 + 0xb]\n  2318: a1 = a1 << 0x8\n  2321: a1 = a1 | a4\n  2324: a5 = a5 << 0x10\n  2327: s1 = s1 << 0x18\n  2330: a5 = a5 | s1\n  2333: a1 = a1 | a5\n  2336: a4 = u8 [a0 + 0xd]\n  2339: a5 = u8 [a0 + 0xc]\n  2342: s1 = u8 [a0 + 0xe]\n  2345: a0 = u8 [a0 + 0xf]\n  2348: a4 = a4 << 0x8\n  2351: a4 = a4 | a5\n  2354: s1 = s1 << 0x10\n  2357: a0 = a0 << 0x18\n  2360: a0 = a0 | s1\n  2363: a0 = a0 | a4\n  2366: a0 = a0 << 0x20\n  2369: a0 = a0 | a1\n  2372: a1 = reverse a0\n  2374: a0 = reverse a3\n  2376: a2 = reverse a2\n  2378: a3 = reverse t0\n  2380: a2 = a2 | a3\n  2383: a3 = a0 | a1\n  2386: a3 = a3 | a2\n  2389: a3 = a3 >> 0x20\n  2392: a1 = a1 | a2\n  2395: a1 = a1 << 0x20\n  2398: a1 = a1 | a3\n  2401: jump @61 if a1 == 0\n      : @58 (gas: 1)\n  2404: trap\n      : @59 (gas: 3)\n  2405: a0 = 0\n  2407: a1 = 0\n  2409: ra = 44, jump @0\n      : @60 [@dyn 22] (gas: 7)\n  2414: i32 a1 = a0 + 0\n  2416: a0 = 0x1\n  2419: a2 = 0\n  2421: ecalli 4 // 'seal_return'\n  2423: i32 a0 = a0 + 0\n  2425: ra = 0x2e\n  2428: jump @0\n      : @61 (gas: 2)\n  2431: i32 a0 = a0 + 0\n  2433: ra = 46, jump @0\n      : @62 [@dyn 23] (gas: 6)\n  2438: i32 a1 = a0 + 0\n  2440: a0 = 0\n  2442: a2 = 0\n  2444: ra = 0x30\n  2447: ecalli 4 // 'seal_return'\n  2449: fallthrough\n      : @63 [@dyn 24] (gas: 13)\n  2450: sp = sp + 0xffffffffffffff40\n  2454: u64 [sp + 0xb8] = ra\n  2458: u64 [sp + 0xb0] = s0\n  2462: u64 [sp + 0xa8] = s1\n  2466: s0 = sp + 0xc0\n  2470: sp = sp & 0xffffffffffffffe0\n  2473: u64 [sp + 56] = 0\n  2476: u64 [sp + 48] = 0\n  2479: u64 [sp + 40] = 0\n  2482: u64 [sp + 32] = 0\n  2485: i32 a0 = sp + 0x20\n  2488: ecalli 7 // 'value_transferred'\n  2490: fallthrough\n      : @64 (gas: 8)\n  2491: a0 = u64 [sp + 0x30]\n  2494: a1 = u64 [sp + 0x38]\n  2497: a2 = u64 [sp + 0x28]\n  2500: a3 = u64 [sp + 0x20]\n  2503: a1 = a1 | a2\n  2506: a0 = a0 | a3\n  2509: a0 = a0 | a1\n  2512: jump @69 if a0 != 0\n      : @65 (gas: 2)\n  2516: a0 = i32 [0x20004]\n  2521: jump @69 if a0 <=u 35\n      : @66 (gas: 45)\n  2526: i32 a0 = sp + 0x80\n  2530: a1 = 0x4\n  2533: ecalli 1 // 'call_data_load'\n  2535: a0 = u64 [sp + 0x80]\n  2539: u64 [sp + 0x18] = a0\n  2542: a0 = u64 [sp + 0x88]\n  2546: u64 [sp + 0x10] = a0\n  2549: a0 = u64 [sp + 0x90]\n  2553: u64 [sp + 0x8] = a0\n  2556: s1 = u64 [sp + 0x98]\n  2560: u64 [sp + 120] = 0\n  2563: u64 [sp + 112] = 0\n  2566: u64 [sp + 104] = 0\n  2569: u64 [sp + 96] = 0x1\n  2573: u64 [sp + 152] = 0\n  2577: u64 [sp + 144] = 0\n  2581: u64 [sp + 136] = 0\n  2585: u64 [sp + 128] = 0\n  2589: u32 [sp + 64] = 0x20\n  2593: i32 a1 = sp + 0x60\n  2596: i32 a3 = sp + 0x80\n  2600: i32 a4 = sp + 0x40\n  2603: a2 = 0xffffffffffffffff\n  2606: a0 = 0\n  2608: ecalli 3 // 'get_storage'\n  2610: u64 [sp + 120] = 0\n  2613: u64 [sp + 112] = 0\n  2616: u64 [sp + 104] = 0\n  2619: u64 [sp + 96] = 0x1\n  2623: u64 [sp + 0x98] = s1\n  2627: a0 = u64 [sp + 0x8]\n  2630: u64 [sp + 0x90] = a0\n  2634: a0 = u64 [sp + 0x10]\n  2637: u64 [sp + 0x88] = a0\n  2641: a0 = u64 [sp + 0x18]\n  2644: u64 [sp + 0x80] = a0\n  2648: i32 a1 = sp + 0x60\n  2651: i32 a3 = sp + 0x80\n  2655: a2 = 0xffffffffffffffff\n  2658: a4 = 0x20\n  2661: a0 = 0\n  2663: ecalli 6 // 'set_storage'\n  2665: a0 = 0x40\n  2668: a1 = 0x20\n  2671: ra = 50, jump @0\n      : @67 [@dyn 25] (gas: 100)\n  2676: a1 = u8 [a0 + 0x11]\n  2679: a2 = u8 [a0 + 0x10]\n  2682: a3 = u8 [a0 + 0x12]\n  2685: a4 = u8 [a0 + 0x13]\n  2688: a1 = a1 << 0x8\n  2691: a1 = a1 | a2\n  2694: a3 = a3 << 0x10\n  2697: a4 = a4 << 0x18\n  2700: a3 = a3 | a4\n  2703: a1 = a1 | a3\n  2706: a2 = u8 [a0 + 0x15]\n  2709: a3 = u8 [a0 + 0x14]\n  2712: a4 = u8 [a0 + 0x16]\n  2715: a5 = u8 [a0 + 0x17]\n  2718: a2 = a2 << 0x8\n  2721: a2 = a2 | a3\n  2724: a4 = a4 << 0x10\n  2727: a5 = a5 << 0x18\n  2730: a4 = a4 | a5\n  2733: a2 = a2 | a4\n  2736: a2 = a2 << 0x20\n  2739: t0 = a2 | a1\n  2742: a2 = u8 [a0 + 0x1]\n  2745: a3 = u8 [a0]\n  2747: a4 = u8 [a0 + 0x2]\n  2750: a5 = u8 [a0 + 0x3]\n  2753: a2 = a2 << 0x8\n  2756: a2 = a2 | a3\n  2759: a4 = a4 << 0x10\n  2762: a5 = a5 << 0x18\n  2765: a4 = a4 | a5\n  2768: a2 = a2 | a4\n  2771: a3 = u8 [a0 + 0x5]\n  2774: a4 = u8 [a0 + 0x4]\n  2777: a5 = u8 [a0 + 0x6]\n  2780: s1 = u8 [a0 + 0x7]\n  2783: a3 = a3 << 0x8\n  2786: a3 = a3 | a4\n  2789: a5 = a5 << 0x10\n  2792: s1 = s1 << 0x18\n  2795: a5 = a5 | s1\n  2798: a3 = a3 | a5\n  2801: a3 = a3 << 0x20\n  2804: a2 = a2 | a3\n  2807: a3 = u8 [a0 + 0x19]\n  2810: a4 = u8 [a0 + 0x18]\n  2813: a5 = u8 [a0 + 0x1a]\n  2816: s1 = u8 [a0 + 0x1b]\n  2819: a3 = a3 << 0x8\n  2822: a3 = a3 | a4\n  2825: a5 = a5 << 0x10\n  2828: s1 = s1 << 0x18\n  2831: a5 = a5 | s1\n  2834: a3 = a3 | a5\n  2837: a4 = u8 [a0 + 0x1d]\n  2840: a5 = u8 [a0 + 0x1c]\n  2843: s1 = u8 [a0 + 0x1e]\n  2846: a1 = u8 [a0 + 0x1f]\n  2849: a4 = a4 << 0x8\n  2852: a4 = a4 | a5\n  2855: s1 = s1 << 0x10\n  2858: a1 = a1 << 0x18\n  2861: a1 = a1 | s1\n  2864: a1 = a1 | a4\n  2867: a1 = a1 << 0x20\n  2870: a3 = a3 | a1\n  2873: a1 = u8 [a0 + 0x9]\n  2876: a4 = u8 [a0 + 0x8]\n  2879: a5 = u8 [a0 + 0xa]\n  2882: s1 = u8 [a0 + 0xb]\n  2885: a1 = a1 << 0x8\n  2888: a1 = a1 | a4\n  2891: a5 = a5 << 0x10\n  2894: s1 = s1 << 0x18\n  2897: a5 = a5 | s1\n  2900: a1 = a1 | a5\n  2903: a4 = u8 [a0 + 0xd]\n  2906: a5 = u8 [a0 + 0xc]\n  2909: s1 = u8 [a0 + 0xe]\n  2912: a0 = u8 [a0 + 0xf]\n  2915: a4 = a4 << 0x8\n  2918: a4 = a4 | a5\n  2921: s1 = s1 << 0x10\n  2924: a0 = a0 << 0x18\n  2927: a0 = a0 | s1\n  2930: a0 = a0 | a4\n  2933: a0 = a0 << 0x20\n  2936: a0 = a0 | a1\n  2939: a1 = reverse a0\n  2941: a0 = reverse a3\n  2943: a2 = reverse a2\n  2945: a3 = reverse t0\n  2947: a2 = a2 | a3\n  2950: a3 = a0 | a1\n  2953: a3 = a3 | a2\n  2956: a3 = a3 >> 0x20\n  2959: a1 = a1 | a2\n  2962: a1 = a1 << 0x20\n  2965: a1 = a1 | a3\n  2968: jump @71 if a1 == 0\n      : @68 (gas: 1)\n  2971: trap\n      : @69 (gas: 3)\n  2972: a0 = 0\n  2974: a1 = 0\n  2976: ra = 52, jump @0\n      : @70 [@dyn 26] (gas: 7)\n  2981: i32 a1 = a0 + 0\n  2983: a0 = 0x1\n  2986: a2 = 0\n  2988: ecalli 4 // 'seal_return'\n  2990: i32 a0 = a0 + 0\n  2992: ra = 0x36\n  2995: jump @0\n      : @71 (gas: 2)\n  2998: i32 a0 = a0 + 0\n  3000: ra = 54, jump @0\n      : @72 [@dyn 27] (gas: 6)\n  3005: i32 a1 = a0 + 0\n  3007: a0 = 0\n  3009: a2 = 0\n  3011: ra = 0x38\n  3014: ecalli 4 // 'seal_return'\n  3016: fallthrough\n      : @73 [@dyn 28] (gas: 13)\n  3017: sp = sp + 0xffffffffffffff60\n  3021: u64 [sp + 0x98] = ra\n  3025: u64 [sp + 0x90] = s0\n  3029: u64 [sp + 0x88] = s1\n  3033: s0 = sp + 0xa0\n  3037: sp = sp & 0xffffffffffffffe0\n  3040: u64 [sp + 56] = 0\n  3043: u64 [sp + 48] = 0\n  3046: u64 [sp + 40] = 0\n  3049: u64 [sp + 32] = 0\n  3052: i32 a0 = sp + 0x20\n  3055: ecalli 7 // 'value_transferred'\n  3057: fallthrough\n      : @74 (gas: 8)\n  3058: a0 = u64 [sp + 0x30]\n  3061: a1 = u64 [sp + 0x38]\n  3064: a2 = u64 [sp + 0x28]\n  3067: a3 = u64 [sp + 0x20]\n  3070: a1 = a1 | a2\n  3073: a0 = a0 | a3\n  3076: a0 = a0 | a1\n  3079: jump @79 if a0 != 0\n      : @75 (gas: 2)\n  3083: a0 = i32 [0x20004]\n  3088: jump @79 if a0 <=u 3\n      : @76 (gas: 26)\n  3093: u64 [sp + 88] = 0\n  3096: u64 [sp + 80] = 0\n  3099: u64 [sp + 72] = 0\n  3102: u64 [sp + 64] = 0x1\n  3106: u64 [sp + 120] = 0\n  3109: u64 [sp + 112] = 0\n  3112: u64 [sp + 104] = 0\n  3115: u64 [sp + 96] = 0\n  3118: u32 [sp + 128] = 0x20\n  3123: i32 a1 = sp + 0x40\n  3126: i32 a3 = sp + 0x60\n  3129: i32 a4 = sp + 0x80\n  3133: a2 = 0xffffffffffffffff\n  3136: a0 = 0\n  3138: ecalli 3 // 'get_storage'\n  3140: a0 = u64 [sp + 0x78]\n  3143: u64 [sp] = a0\n  3145: a0 = u64 [sp + 0x70]\n  3148: u64 [sp + 0x8] = a0\n  3151: a0 = u64 [sp + 0x68]\n  3154: u64 [sp + 0x10] = a0\n  3157: a0 = u64 [sp + 0x60]\n  3160: u64 [sp + 0x18] = a0\n  3163: a0 = 0x40\n  3166: a1 = 0x20\n  3169: ra = 58, jump @0\n      : @77 [@dyn 29] (gas: 100)\n  3174: a1 = u8 [a0 + 0x11]\n  3177: a2 = u8 [a0 + 0x10]\n  3180: a3 = u8 [a0 + 0x12]\n  3183: a4 = u8 [a0 + 0x13]\n  3186: a1 = a1 << 0x8\n  3189: a1 = a1 | a2\n  3192: a3 = a3 << 0x10\n  3195: a4 = a4 << 0x18\n  3198: a3 = a3 | a4\n  3201: a1 = a1 | a3\n  3204: a2 = u8 [a0 + 0x15]\n  3207: a3 = u8 [a0 + 0x14]\n  3210: a4 = u8 [a0 + 0x16]\n  3213: a5 = u8 [a0 + 0x17]\n  3216: a2 = a2 << 0x8\n  3219: a2 = a2 | a3\n  3222: a4 = a4 << 0x10\n  3225: a5 = a5 << 0x18\n  3228: a4 = a4 | a5\n  3231: a2 = a2 | a4\n  3234: a2 = a2 << 0x20\n  3237: t0 = a2 | a1\n  3240: a2 = u8 [a0 + 0x1]\n  3243: a3 = u8 [a0]\n  3245: a4 = u8 [a0 + 0x2]\n  3248: a5 = u8 [a0 + 0x3]\n  3251: a2 = a2 << 0x8\n  3254: a2 = a2 | a3\n  3257: a4 = a4 << 0x10\n  3260: a5 = a5 << 0x18\n  3263: a4 = a4 | a5\n  3266: a2 = a2 | a4\n  3269: a3 = u8 [a0 + 0x5]\n  3272: a4 = u8 [a0 + 0x4]\n  3275: a5 = u8 [a0 + 0x6]\n  3278: s1 = u8 [a0 + 0x7]\n  3281: a3 = a3 << 0x8\n  3284: a3 = a3 | a4\n  3287: a5 = a5 << 0x10\n  3290: s1 = s1 << 0x18\n  3293: a5 = a5 | s1\n  3296: a3 = a3 | a5\n  3299: a3 = a3 << 0x20\n  3302: a2 = a2 | a3\n  3305: a3 = u8 [a0 + 0x19]\n  3308: a4 = u8 [a0 + 0x18]\n  3311: a5 = u8 [a0 + 0x1a]\n  3314: s1 = u8 [a0 + 0x1b]\n  3317: a3 = a3 << 0x8\n  3320: a3 = a3 | a4\n  3323: a5 = a5 << 0x10\n  3326: s1 = s1 << 0x18\n  3329: a5 = a5 | s1\n  3332: a3 = a3 | a5\n  3335: a4 = u8 [a0 + 0x1d]\n  3338: a5 = u8 [a0 + 0x1c]\n  3341: s1 = u8 [a0 + 0x1e]\n  3344: a1 = u8 [a0 + 0x1f]\n  3347: a4 = a4 << 0x8\n  3350: a4 = a4 | a5\n  3353: s1 = s1 << 0x10\n  3356: a1 = a1 << 0x18\n  3359: a1 = a1 | s1\n  3362: a1 = a1 | a4\n  3365: a1 = a1 << 0x20\n  3368: a3 = a3 | a1\n  3371: a1 = u8 [a0 + 0x9]\n  3374: a4 = u8 [a0 + 0x8]\n  3377: a5 = u8 [a0 + 0xa]\n  3380: s1 = u8 [a0 + 0xb]\n  3383: a1 = a1 << 0x8\n  3386: a1 = a1 | a4\n  3389: a5 = a5 << 0x10\n  3392: s1 = s1 << 0x18\n  3395: a5 = a5 | s1\n  3398: a1 = a1 | a5\n  3401: a4 = u8 [a0 + 0xd]\n  3404: a5 = u8 [a0 + 0xc]\n  3407: s1 = u8 [a0 + 0xe]\n  3410: a0 = u8 [a0 + 0xf]\n  3413: a4 = a4 << 0x8\n  3416: a4 = a4 | a5\n  3419: s1 = s1 << 0x10\n  3422: a0 = a0 << 0x18\n  3425: a0 = a0 | s1\n  3428: a0 = a0 | a4\n  3431: a0 = a0 << 0x20\n  3434: a0 = a0 | a1\n  3437: a1 = reverse a0\n  3439: a0 = reverse a3\n  3441: a2 = reverse a2\n  3443: a3 = reverse t0\n  3445: a2 = a2 | a3\n  3448: a3 = a0 | a1\n  3451: a3 = a3 | a2\n  3454: a3 = a3 >> 0x20\n  3457: a1 = a1 | a2\n  3460: a1 = a1 << 0x20\n  3463: a1 = a1 | a3\n  3466: jump @81 if a1 == 0\n      : @78 (gas: 1)\n  3469: trap\n      : @79 (gas: 3)\n  3470: a0 = 0\n  3472: a1 = 0\n  3474: ra = 60, jump @0\n      : @80 [@dyn 30] (gas: 5)\n  3479: i32 a1 = a0 + 0\n  3481: a0 = 0x1\n  3484: a2 = 0\n  3486: ecalli 4 // 'seal_return'\n  3488: fallthrough\n      : @81 (gas: 4)\n  3489: i32 s1 = a0 + 0\n  3491: a1 = 0x20\n  3494: a0 = s1\n  3496: ra = 62, jump @0\n      : @82 [@dyn 31] (gas: 71)\n  3501: a1 = u64 [sp]\n  3503: a1 = reverse a1\n  3505: a2 = u64 [sp + 0x8]\n  3508: a2 = reverse a2\n  3510: a3 = u64 [sp + 0x10]\n  3513: a3 = reverse a3\n  3515: a4 = u64 [sp + 0x18]\n  3518: a4 = reverse a4\n  3520: a5 = a4 >> 0x38\n  3523: u8 [a0 + 0x1f] = a5\n  3526: a5 = a4 >> 0x30\n  3529: u8 [a0 + 0x1e] = a5\n  3532: a5 = a4 >> 0x28\n  3535: u8 [a0 + 0x1d] = a5\n  3538: a5 = a4 >> 0x20\n  3541: u8 [a0 + 0x1c] = a5\n  3544: a5 = a4 >> 0x18\n  3547: u8 [a0 + 0x1b] = a5\n  3550: a5 = a4 >> 0x10\n  3553: u8 [a0 + 0x1a] = a5\n  3556: a5 = a4 >> 0x8\n  3559: u8 [a0 + 0x19] = a5\n  3562: u8 [a0 + 0x18] = a4\n  3565: u8 [a0 + 0x10] = a3\n  3568: a4 = a3 >> 0x38\n  3571: u8 [a0 + 0x17] = a4\n  3574: a4 = a3 >> 0x30\n  3577: u8 [a0 + 0x16] = a4\n  3580: a4 = a3 >> 0x28\n  3583: u8 [a0 + 0x15] = a4\n  3586: a4 = a3 >> 0x20\n  3589: u8 [a0 + 0x14] = a4\n  3592: a4 = a3 >> 0x18\n  3595: u8 [a0 + 0x13] = a4\n  3598: a4 = a3 >> 0x10\n  3601: u8 [a0 + 0x12] = a4\n  3604: a3 = a3 >> 0x8\n  3607: u8 [a0 + 0x11] = a3\n  3610: u8 [a0 + 0x8] = a2\n  3613: a3 = a2 >> 0x38\n  3616: u8 [a0 + 0xf] = a3\n  3619: a3 = a2 >> 0x30\n  3622: u8 [a0 + 0xe] = a3\n  3625: a3 = a2 >> 0x28\n  3628: u8 [a0 + 0xd] = a3\n  3631: a3 = a2 >> 0x20\n  3634: u8 [a0 + 0xc] = a3\n  3637: a3 = a2 >> 0x18\n  3640: u8 [a0 + 0xb] = a3\n  3643: a3 = a2 >> 0x10\n  3646: u8 [a0 + 0xa] = a3\n  3649: a2 = a2 >> 0x8\n  3652: u8 [a0 + 0x9] = a2\n  3655: u8 [a0] = a1\n  3657: a2 = a1 >> 0x38\n  3660: u8 [a0 + 0x7] = a2\n  3663: a2 = a1 >> 0x30\n  3666: u8 [a0 + 0x6] = a2\n  3669: a2 = a1 >> 0x28\n  3672: u8 [a0 + 0x5] = a2\n  3675: a2 = a1 >> 0x20\n  3678: u8 [a0 + 0x4] = a2\n  3681: a2 = a1 >> 0x18\n  3684: u8 [a0 + 0x3] = a2\n  3687: a2 = a1 >> 0x10\n  3690: u8 [a0 + 0x2] = a2\n  3693: a1 = a1 >> 0x8\n  3696: u8 [a0 + 0x1] = a1\n  3699: a1 = 0x20\n  3702: a0 = s1\n  3704: ra = 64, jump @0\n      : @83 [@dyn 32] (gas: 6)\n  3709: i32 a1 = a0 + 0\n  3711: a2 = 0x20\n  3714: a0 = 0\n  3716: ra = 0x42\n  3719: ecalli 4 // 'seal_return'\n  3721: fallthrough\n      : @84 [@dyn 33] (gas: 5)\n  3722: sp = sp + 0xfffffffffffffff8\n  3725: u64 [sp] = ra\n  3727: a0 = 0\n  3729: a1 = 0\n  3731: ra = 68, jump @0\n      : @85 [@dyn 34] (gas: 6)\n  3736: i32 a1 = a0 + 0\n  3738: a0 = 0x1\n  3741: a2 = 0\n  3743: ra = 0x46\n  3746: ecalli 4 // 'seal_return'\n  3748: fallthrough\n      : @86 [@dyn 35] (gas: 5)\n  3749: u64 [a0 + 24] = 0\n  3752: u64 [a0 + 16] = 0\n  3755: u64 [a0 + 8] = 0\n  3758: u64 [a0 + 0] = 0\n  3760: ret\n      : @87 [export #0: 'call'] (gas: 2)\n  3762: a0 = 0\n  3764: ra = 72, jump @8\n      : @88 [@dyn 36] [export #1: 'deploy'] (gas: 2)\n  3769: a0 = 0x1\n  3772: ra = 74, jump @8\n      : @89 [@dyn 37] (gas: 9)\n  3777: sp = sp + 0xffffffffffffffc0\n  3780: u64 [sp + 0x38] = ra\n  3783: u64 [sp + 0x30] = s0\n  3786: u64 [sp + 0x28] = s1\n  3789: s0 = sp + 0x40\n  3792: sp = sp & 0xfffffffffffffff0\n  3795: s1 = a0\n  3797: a0 = sp\n  3799: ra = 76, jump @41\n      : @90 [@dyn 38] (gas: 14)\n  3804: a0 = u64 [sp + 0x10]\n  3807: a1 = u64 [sp + 0x18]\n  3810: a2 = u64 [sp]\n  3812: a3 = u64 [sp + 0x8]\n  3815: u64 [s1 + 0x10] = a0\n  3818: u64 [s1 + 0x18] = a1\n  3821: u64 [s1] = a2\n  3823: u64 [s1 + 0x8] = a3\n  3826: sp = s0 + 0xffffffffffffffc0\n  3829: ra = u64 [sp + 0x38]\n  3832: s0 = u64 [sp + 0x30]\n  3835: s1 = u64 [sp + 0x28]\n  3838: sp = sp + 0x40\n  3841: ret\n",
+						"bytecode": {
+							"object": "50564d0000f311000000000000010700c11000c0004004808f08000000000e0000001c0000002a0000003500000040000000520000005d00000063616c6c5f646174615f636f707963616c6c5f646174615f6c6f616463616c6c5f646174615f73697a656765745f73746f726167657365616c5f72657475726e7365745f696d6d757461626c655f646174617365745f73746f7261676576616c75655f7472616e736665727265640511028eb20463616c6c8eb9066465706c6f7906913426028f035a005f007b000f0140025502780284029e023903530358038603b403c90360059106a706770784073d086e0986099209740aa50bbd0bc90b660c970dad0d7d0e8a0e980ea50eb90ec10edc0e8b791052093b3309010001ae9833c8780883881f8488e0553801000128390a000002ae8a123d080000023308100002c8870732003308100002c88707320000009511f07b10087b158475010a02013d07040002510507501002095010042a029511c07b10387b15307b16289515408411e03307403308205010068946171f800046171e46171d46171c46171b46171a46171946171846171746171646171546171446171346171246171146171046170f46170e46170d46170c46170b46170a4617094617084617074617064617054617044617034617024617014607491118490149110849111083170a0701821710821818821908821ad49808d4a707d4870752073701330740330820501008f6fe7c78117c79107c7a127c7b13978808d4980897aa1097bb18d4ba0ad4a8087c79157c7a147c7b167c7c17979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79017c7a7c7b027c7c03979908d4a90997bb1097cc18d4cb0bd4b9097c7a057c7b047c7c067c760797aa08d4ba0a97cc10976618d46c0cd4ca0a97aa20d4a9097c7a197c7b187c7c1a7c761b97aa08d4ba0a97cc10976618d46c0cd4ca0a7c7b1d7c7c1c7c761e7c781f97bb08d4cb0b976610978818d46808d4b808978820d48a0a7c78097c7b087c7c0a7c760b978808d4b80897cc10976618d46c0cd4c8087c7b0d7c7c0c7c760e7c770f97bb08d4cb0b976610977718d46707d4b707977720d487076f776fa66f986f29d49808d47609d48909989920d48707977720d49707510717003307330850100ac5fd837833070133090a040183666467330850100cb0fd8377330833090a01390808000251080d330710000383770a05016467330850100e8dfd8378330733093300100a04019511c07b10387b15309515408411e033074033082050101267fd46171f800046171e46171d46171c46171b46171a46171946171846171746171646171546171446171346171246171146171046170f46170e46170d46170c46170b46170a461709461708461707461703461702461701460739080400024617064617054617045318044f831733080a010181171c330800d0642e5a47c0ce642e215147b82a0a84155147048099ea0e52473501b1ec2650101495088388c1feaa871b51471d365760465247e9dec6730c5010164406501018370b33001a951160ff7b1098007b1590007b1688009515a0008411e04911384911304911284911208317200a07286a0133001c951140ff7b10b8007b15b0007b16a8009515c0008411e04911384911304911284911208317200a0728d5039511f07b10087b15647533074033082050101e3cfc7c78017c797c7a027c7b03978808d4980897aa1097bb18d4ba0ad4a8087c79057c7a047c7b067c7c07979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79097c7a087c7b0a7c7c0b979908d4a90997bb1097cc18d4cb0bd4b9097c7a0d7c7b0c7c7c0e7c780f97aa08d4ba0a97cc10978818d4c808d4a808978820d498037c78117c7a107c7b127c7c13978808d4a80897bb1097cc18d4cb0bd4b8087c7a157c7b147c7c167c791797aa08d4ba0a97cc10979918d4c909d4a909979920d4890a7c78197c79187c7b1a7c7c1b978808d4980897bb1097cc18d4cb0bd4b8087c791d7c7b1c7c7c1e7c771f979908d4b90997cc10977718d4c707d49707977720d487076f776fa86f396f2a7b5a187b59107b58087b5782100882159511103200821730821838821928821a20d49808d4a707d487075207860139070400025417037d014911584911504911484911404911784911704911684911604821800020831840831a60831b80003309ff33070a038217787b178217707b17088217687b17108217607b1718330740330820501020a5fa7c78117c79107c7a127c7b13978808d4980897aa1097bb18d4ba0ad4a8087c79157c7a147c7b167c7c17979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79017c7a7c7b027c7c03979908d4a90997bb1097cc18d4cb0bd4b9097c7a057c7b047c7c067c760797aa08d4ba0a97cc10976618d46c0cd4ca0a97aa20d4a9097c7a197c7b187c7c1a7c761b97aa08d4ba0a97cc10976618d46c0cd4ca0a7c7b1d7c7c1c7c761e7c781f97bb08d4cb0b976610978818d46808d4b808978820d48a0a7c78097c7b087c7c0a7c760b978808d4b80897cc10976618d46c0cd4c8087c7b0d7c7c0c7c760e7c770f97bb08d4cb0b976610977718d46707d4b707977720d487076f786fa76f996f2ad4a909d4870ad49a0a98aa20d49808978820d4a808510817003307330850102274f9837833070133090a0401837633082064675010245ef982186f888219086f99821a106faa821b186fbb98bc38787c1f98bc30787c1e98bc28787c1d98bc20787c1c98bc18787c1b98bc10787c1a98bc08787c19787b18787a1098ab38787b1798ab30787b1698ab28787b1598ab20787b1498ab18787b1398ab10787b1298aa08787a11787908989a38787a0f989a30787a0e989a28787a0d989a20787a0c989a18787a0b989a10787a0a989908787909787898893878790798893078790698892878790598892078790498891878790398891078790298880878780133082064675010268ef8837833092033073300280a04013200821730821838821928821a20d49808d4a707d487075207ca013907040002541723c101831780003308040a01821780007b1718821788007b1710821790007b1708821698004911784911704911684911604921980049219000492188004921800048114020831860831a8000831b403309ff33070a034911784911704911684911607b1698008217087b1790008217107b1788008217187b178000831860831a80003309ff330b2033070a0633074033082050102ac8f77c78117c79107c7a127c7b13978808d4980897aa1097bb18d4ba0ad4a8087c79157c7a147c7b167c7c17979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79017c7a7c7b027c7c03979908d4a90997bb1097cc18d4cb0bd4b9097c7a057c7b047c7c067c760797aa08d4ba0a97cc10976618d46c0cd4ca0a97aa20d4a9097c7a197c7b187c7c1a7c761b97aa08d4ba0a97cc10976618d46c0cd4ca0a7c7b1d7c7c1c7c761e7c781f97bb08d4cb0b976610978818d46808d4b808978820d48a0a7c78097c7b087c7c0a7c760b978808d4b80897cc10976618d46c0cd4c8087c7b0d7c7c0c7c760e7c770f97bb08d4cb0b976610977718d46707d4b707977720d487076f786fa76f996f2ad4a909d4870ad49a0a98aa20d49808978820d4a80851081e003307330850102c97f6837833070133090a04837733002e2884f6837750102e7ff68378330733093300300a0401951140ff7b10b8007b15b0007b16a8009515c0008411e04911384911304911284911208317200a0701821730821838821928821a20d49808d4a707d487075207cc013907040002541723c301831780003308040a01821780007b1718821788007b1710821790007b170882169800491178491170491168491160014921980049219000492188004921800048114020831860831a8000831b403309ff33070a03491178491170491168491160017b1698008217087b1790008217107b1788008217187b178000831860831a80003309ff330b2033070a0633074033082050103291f57c78117c79107c7a127c7b13978808d4980897aa1097bb18d4ba0ad4a8087c79157c7a147c7b167c7c17979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79017c7a7c7b027c7c03979908d4a90997bb1097cc18d4cb0bd4b9097c7a057c7b047c7c067c760797aa08d4ba0a97cc10976618d46c0cd4ca0a97aa20d4a9097c7a197c7b187c7c1a7c761b97aa08d4ba0a97cc10976618d46c0cd4ca0a7c7b1d7c7c1c7c761e7c781f97bb08d4cb0b976610978818d46808d4b808978820d48a0a7c78097c7b087c7c0a7c760b978808d4b80897cc10976618d46c0cd4c8087c7b0d7c7c0c7c760e7c770f97bb08d4cb0b976610977718d46707d4b707977720d487076f786fa76f996f2ad4a909d4870ad49a0a98aa20d49808978820d4a80851081e003307330850103460f4837833070133090a048377330036284df4837750103648f48378330733093300380a0401951160ff7b1098007b1590007b1688009515a0008411e04911384911304911284911208317200a0701821730821838821928821a20d49808d4a707d487075207870139070400025417037e01491158491150491148491140014911784911704911684911604821800020831840831a60831b80003309ff33070a038217787b178217707b17088217687b17108217607b171833074033082050103a9ff37c78117c79107c7a127c7b13978808d4980897aa1097bb18d4ba0ad4a8087c79157c7a147c7b167c7c17979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79017c7a7c7b027c7c03979908d4a90997bb1097cc18d4cb0bd4b9097c7a057c7b047c7c067c760797aa08d4ba0a97cc10976618d46c0cd4ca0a97aa20d4a9097c7a197c7b187c7c1a7c761b97aa08d4ba0a97cc10976618d46c0cd4ca0a7c7b1d7c7c1c7c761e7c781f97bb08d4cb0b976610978818d46808d4b808978820d48a0a7c78097c7b087c7c0a7c760b978808d4b80897cc10976618d46c0cd4c8087c7b0d7c7c0c7c760e7c770f97bb08d4cb0b976610977718d46707d4b707977720d487076f786fa76f996f2ad4a909d4870ad49a0a98aa20d49808978820d4a808510817003307330850103c6ef2837833070133090a04018376330820646750103e58f282186f888219086f99821a106faa821b186fbb98bc38787c1f98bc30787c1e98bc28787c1d98bc20787c1c98bc18787c1b98bc10787c1a98bc08787c19787b18787a1098ab38787b1798ab30787b1698ab28787b1598ab20787b1498ab18787b1398ab10787b1298aa08787a11787908989a38787a0f989a30787a0e989a28787a0d989a20787a0c989a18787a0b989a10787a0a9899087879097878988938787907988930787906988928787905988920787904988918787903988910787902988808787801330820646750104088f1837833092033073300420a04019511f87b10330733085010446df1837833070133093300460a04014917184917104917084907320033075010488cf133070150104a84f19511c07b10387b15307b16289515408411f06476641750104cddf48217108218188219821a087b67107b68187b697b6a089551c0821038821530821628951140320049489220248414d24969488424499208499224499224499224499294929aa4249184244992244992244952922449922449922449922449922449922449922449922449559224c90aa556a13a24d40a559a24494248922449922449922449524812d504814020102281400889888824494a222222499292541252922449922449922449922449922449922449922449922449922449922449922455494a29499244084992242189544a9224094992244992244992a4244992244992244992244992244992244992244992244992aa244992154a2d854a2925499224499224499224499224499224494a922449922485525a9224891022452291489288884824952491482412492521499224499224499294244992244992244992244992244992244992244992244952952449b242a992429546444492244d92241142a4482412492222221249258948241289a4929024499224499224494a9224499224499224499224499224499224499224499224a94a922459a15449a14a23222249922649920821492449482295922449429224499224499224294992244992244992244992244992244992244992244992a42a49926485524ba1524a4992244992244992244992244992244992922449922449a194a60aa5344915129224a99094a424490200"
+						},
+						"deployedBytecode": {
+							"object": "50564d0000f311000000000000010700c11000c0004004808f08000000000e0000001c0000002a0000003500000040000000520000005d00000063616c6c5f646174615f636f707963616c6c5f646174615f6c6f616463616c6c5f646174615f73697a656765745f73746f726167657365616c5f72657475726e7365745f696d6d757461626c655f646174617365745f73746f7261676576616c75655f7472616e736665727265640511028eb20463616c6c8eb9066465706c6f7906913426028f035a005f007b000f0140025502780284029e023903530358038603b403c90360059106a706770784073d086e0986099209740aa50bbd0bc90b660c970dad0d7d0e8a0e980ea50eb90ec10edc0e8b791052093b3309010001ae9833c8780883881f8488e0553801000128390a000002ae8a123d080000023308100002c8870732003308100002c88707320000009511f07b10087b158475010a02013d07040002510507501002095010042a029511c07b10387b15307b16289515408411e03307403308205010068946171f800046171e46171d46171c46171b46171a46171946171846171746171646171546171446171346171246171146171046170f46170e46170d46170c46170b46170a4617094617084617074617064617054617044617034617024617014607491118490149110849111083170a0701821710821818821908821ad49808d4a707d4870752073701330740330820501008f6fe7c78117c79107c7a127c7b13978808d4980897aa1097bb18d4ba0ad4a8087c79157c7a147c7b167c7c17979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79017c7a7c7b027c7c03979908d4a90997bb1097cc18d4cb0bd4b9097c7a057c7b047c7c067c760797aa08d4ba0a97cc10976618d46c0cd4ca0a97aa20d4a9097c7a197c7b187c7c1a7c761b97aa08d4ba0a97cc10976618d46c0cd4ca0a7c7b1d7c7c1c7c761e7c781f97bb08d4cb0b976610978818d46808d4b808978820d48a0a7c78097c7b087c7c0a7c760b978808d4b80897cc10976618d46c0cd4c8087c7b0d7c7c0c7c760e7c770f97bb08d4cb0b976610977718d46707d4b707977720d487076f776fa66f986f29d49808d47609d48909989920d48707977720d49707510717003307330850100ac5fd837833070133090a040183666467330850100cb0fd8377330833090a01390808000251080d330710000383770a05016467330850100e8dfd8378330733093300100a04019511c07b10387b15309515408411e033074033082050101267fd46171f800046171e46171d46171c46171b46171a46171946171846171746171646171546171446171346171246171146171046170f46170e46170d46170c46170b46170a461709461708461707461703461702461701460739080400024617064617054617045318044f831733080a010181171c330800d0642e5a47c0ce642e215147b82a0a84155147048099ea0e52473501b1ec2650101495088388c1feaa871b51471d365760465247e9dec6730c5010164406501018370b33001a951160ff7b1098007b1590007b1688009515a0008411e04911384911304911284911208317200a07286a0133001c951140ff7b10b8007b15b0007b16a8009515c0008411e04911384911304911284911208317200a0728d5039511f07b10087b15647533074033082050101e3cfc7c78017c797c7a027c7b03978808d4980897aa1097bb18d4ba0ad4a8087c79057c7a047c7b067c7c07979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79097c7a087c7b0a7c7c0b979908d4a90997bb1097cc18d4cb0bd4b9097c7a0d7c7b0c7c7c0e7c780f97aa08d4ba0a97cc10978818d4c808d4a808978820d498037c78117c7a107c7b127c7c13978808d4a80897bb1097cc18d4cb0bd4b8087c7a157c7b147c7c167c791797aa08d4ba0a97cc10979918d4c909d4a909979920d4890a7c78197c79187c7b1a7c7c1b978808d4980897bb1097cc18d4cb0bd4b8087c791d7c7b1c7c7c1e7c771f979908d4b90997cc10977718d4c707d49707977720d487076f776fa86f396f2a7b5a187b59107b58087b5782100882159511103200821730821838821928821a20d49808d4a707d487075207860139070400025417037d014911584911504911484911404911784911704911684911604821800020831840831a60831b80003309ff33070a038217787b178217707b17088217687b17108217607b1718330740330820501020a5fa7c78117c79107c7a127c7b13978808d4980897aa1097bb18d4ba0ad4a8087c79157c7a147c7b167c7c17979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79017c7a7c7b027c7c03979908d4a90997bb1097cc18d4cb0bd4b9097c7a057c7b047c7c067c760797aa08d4ba0a97cc10976618d46c0cd4ca0a97aa20d4a9097c7a197c7b187c7c1a7c761b97aa08d4ba0a97cc10976618d46c0cd4ca0a7c7b1d7c7c1c7c761e7c781f97bb08d4cb0b976610978818d46808d4b808978820d48a0a7c78097c7b087c7c0a7c760b978808d4b80897cc10976618d46c0cd4c8087c7b0d7c7c0c7c760e7c770f97bb08d4cb0b976610977718d46707d4b707977720d487076f786fa76f996f2ad4a909d4870ad49a0a98aa20d49808978820d4a808510817003307330850102274f9837833070133090a0401837633082064675010245ef982186f888219086f99821a106faa821b186fbb98bc38787c1f98bc30787c1e98bc28787c1d98bc20787c1c98bc18787c1b98bc10787c1a98bc08787c19787b18787a1098ab38787b1798ab30787b1698ab28787b1598ab20787b1498ab18787b1398ab10787b1298aa08787a11787908989a38787a0f989a30787a0e989a28787a0d989a20787a0c989a18787a0b989a10787a0a989908787909787898893878790798893078790698892878790598892078790498891878790398891078790298880878780133082064675010268ef8837833092033073300280a04013200821730821838821928821a20d49808d4a707d487075207ca013907040002541723c101831780003308040a01821780007b1718821788007b1710821790007b1708821698004911784911704911684911604921980049219000492188004921800048114020831860831a8000831b403309ff33070a034911784911704911684911607b1698008217087b1790008217107b1788008217187b178000831860831a80003309ff330b2033070a0633074033082050102ac8f77c78117c79107c7a127c7b13978808d4980897aa1097bb18d4ba0ad4a8087c79157c7a147c7b167c7c17979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79017c7a7c7b027c7c03979908d4a90997bb1097cc18d4cb0bd4b9097c7a057c7b047c7c067c760797aa08d4ba0a97cc10976618d46c0cd4ca0a97aa20d4a9097c7a197c7b187c7c1a7c761b97aa08d4ba0a97cc10976618d46c0cd4ca0a7c7b1d7c7c1c7c761e7c781f97bb08d4cb0b976610978818d46808d4b808978820d48a0a7c78097c7b087c7c0a7c760b978808d4b80897cc10976618d46c0cd4c8087c7b0d7c7c0c7c760e7c770f97bb08d4cb0b976610977718d46707d4b707977720d487076f786fa76f996f2ad4a909d4870ad49a0a98aa20d49808978820d4a80851081e003307330850102c97f6837833070133090a04837733002e2884f6837750102e7ff68378330733093300300a0401951140ff7b10b8007b15b0007b16a8009515c0008411e04911384911304911284911208317200a0701821730821838821928821a20d49808d4a707d487075207cc013907040002541723c301831780003308040a01821780007b1718821788007b1710821790007b170882169800491178491170491168491160014921980049219000492188004921800048114020831860831a8000831b403309ff33070a03491178491170491168491160017b1698008217087b1790008217107b1788008217187b178000831860831a80003309ff330b2033070a0633074033082050103291f57c78117c79107c7a127c7b13978808d4980897aa1097bb18d4ba0ad4a8087c79157c7a147c7b167c7c17979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79017c7a7c7b027c7c03979908d4a90997bb1097cc18d4cb0bd4b9097c7a057c7b047c7c067c760797aa08d4ba0a97cc10976618d46c0cd4ca0a97aa20d4a9097c7a197c7b187c7c1a7c761b97aa08d4ba0a97cc10976618d46c0cd4ca0a7c7b1d7c7c1c7c761e7c781f97bb08d4cb0b976610978818d46808d4b808978820d48a0a7c78097c7b087c7c0a7c760b978808d4b80897cc10976618d46c0cd4c8087c7b0d7c7c0c7c760e7c770f97bb08d4cb0b976610977718d46707d4b707977720d487076f786fa76f996f2ad4a909d4870ad49a0a98aa20d49808978820d4a80851081e003307330850103460f4837833070133090a048377330036284df4837750103648f48378330733093300380a0401951160ff7b1098007b1590007b1688009515a0008411e04911384911304911284911208317200a0701821730821838821928821a20d49808d4a707d487075207870139070400025417037e01491158491150491148491140014911784911704911684911604821800020831840831a60831b80003309ff33070a038217787b178217707b17088217687b17108217607b171833074033082050103a9ff37c78117c79107c7a127c7b13978808d4980897aa1097bb18d4ba0ad4a8087c79157c7a147c7b167c7c17979908d4a90997bb1097cc18d4cb0bd4b909979920d489027c79017c7a7c7b027c7c03979908d4a90997bb1097cc18d4cb0bd4b9097c7a057c7b047c7c067c760797aa08d4ba0a97cc10976618d46c0cd4ca0a97aa20d4a9097c7a197c7b187c7c1a7c761b97aa08d4ba0a97cc10976618d46c0cd4ca0a7c7b1d7c7c1c7c761e7c781f97bb08d4cb0b976610978818d46808d4b808978820d48a0a7c78097c7b087c7c0a7c760b978808d4b80897cc10976618d46c0cd4c8087c7b0d7c7c0c7c760e7c770f97bb08d4cb0b976610977718d46707d4b707977720d487076f786fa76f996f2ad4a909d4870ad49a0a98aa20d49808978820d4a808510817003307330850103c6ef2837833070133090a04018376330820646750103e58f282186f888219086f99821a106faa821b186fbb98bc38787c1f98bc30787c1e98bc28787c1d98bc20787c1c98bc18787c1b98bc10787c1a98bc08787c19787b18787a1098ab38787b1798ab30787b1698ab28787b1598ab20787b1498ab18787b1398ab10787b1298aa08787a11787908989a38787a0f989a30787a0e989a28787a0d989a20787a0c989a18787a0b989a10787a0a9899087879097878988938787907988930787906988928787905988920787904988918787903988910787902988808787801330820646750104088f1837833092033073300420a04019511f87b10330733085010446df1837833070133093300460a04014917184917104917084907320033075010488cf133070150104a84f19511c07b10387b15307b16289515408411f06476641750104cddf48217108218188219821a087b67107b68187b697b6a089551c0821038821530821628951140320049489220248414d24969488424499208499224499224499224499294929aa4249184244992244992244952922449922449922449922449922449922449922449922449559224c90aa556a13a24d40a559a24494248922449922449922449524812d504814020102281400889888824494a222222499292541252922449922449922449922449922449922449922449922449922449922449922455494a29499244084992242189544a9224094992244992244992a4244992244992244992244992244992244992244992244992aa244992154a2d854a2925499224499224499224499224499224494a922449922485525a9224891022452291489288884824952491482412492521499224499224499294244992244992244992244992244992244992244992244952952449b242a992429546444492244d92241142a4482412492222221249258948241289a4929024499224499224494a9224499224499224499224499224499224499224499224a94a922459a15449a14a23222249922649920821492449482295922449429224499224499224294992244992244992244992244992244992244992244992a42a49926485524ba1524a4992244992244992244992244992244992922449922449a194a60aa5344915129224a99094a424490200"
+						},
+						"methodIdentifiers": {
+							"checkAccess()": "ecb10135",
+							"getAvailableNfts()": "ea998004",
+							"getUserNfts()": "840a2ab8",
+							"rentNft(uint256)": "73c6dee9",
+							"retrieve()": "2e64cec1",
+							"store(uint256)": "6057361d"
+						}
+					},
+					"irOptimized": "/// @use-src 0:\"smart_contract/rent_contract/rent_contract.sol\"\nobject \"NFTRentContract_61\" {\n    code {\n        {\n            /// @src 0:208:977  \"contract NFTRentContract {...\"\n            mstore(64, memoryguard(0x80))\n            if callvalue()\n            {\n                revert_error_ca66f745a3ce8ff40e2ccaf1ad45db7774001b90d25810abd9040049be7bf4bb()\n            }\n            let _1 := allocate_unbounded()\n            codecopy(_1, dataoffset(\"NFTRentContract_61_deployed\"), datasize(\"NFTRentContract_61_deployed\"))\n            return(_1, datasize(\"NFTRentContract_61_deployed\"))\n        }\n        function allocate_unbounded() -> memPtr\n        { memPtr := mload(64) }\n        function revert_error_ca66f745a3ce8ff40e2ccaf1ad45db7774001b90d25810abd9040049be7bf4bb()\n        { revert(0, 0) }\n    }\n    /// @use-src 0:\"smart_contract/rent_contract/rent_contract.sol\"\n    object \"NFTRentContract_61_deployed\" {\n        code {\n            {\n                /// @src 0:208:977  \"contract NFTRentContract {...\"\n                mstore(64, memoryguard(0x80))\n                if iszero(lt(calldatasize(), 4))\n                {\n                    let selector := shift_right_unsigned(calldataload(0))\n                    switch selector\n                    case 0x2e64cec1 { external_fun_retrieve() }\n                    case 0x6057361d { external_fun_store() }\n                    case 0x73c6dee9 { external_fun_rentNft() }\n                    case 0x840a2ab8 { external_fun_getUserNfts() }\n                    case 0xea998004 {\n                        external_fun_getAvailableNfts()\n                    }\n                    case 0xecb10135 { external_fun_checkAccess() }\n                    default { }\n                }\n                revert_error_42b3090547df1d2001c96683413b8cf91c1b902ef5e3cb8d9f6f304cf7446f74()\n            }\n            function shift_right_unsigned(value) -> newValue\n            { newValue := shr(224, value) }\n            function allocate_unbounded() -> memPtr\n            { memPtr := mload(64) }\n            function revert_error_ca66f745a3ce8ff40e2ccaf1ad45db7774001b90d25810abd9040049be7bf4bb()\n            { revert(0, 0) }\n            function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b()\n            { revert(0, 0) }\n            function abi_decode(headStart, dataEnd)\n            {\n                if slt(sub(dataEnd, headStart), 0)\n                {\n                    revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b()\n                }\n            }\n            function cleanup_uint256(value) -> cleaned\n            { cleaned := value }\n            function abi_encode_uint256_to_uint256(value, pos)\n            {\n                mstore(pos, cleanup_uint256(value))\n            }\n            function abi_encode_uint256(headStart, value0) -> tail\n            {\n                tail := add(headStart, 32)\n                abi_encode_uint256_to_uint256(value0, add(headStart, 0))\n            }\n            function external_fun_retrieve()\n            {\n                if callvalue()\n                {\n                    revert_error_ca66f745a3ce8ff40e2ccaf1ad45db7774001b90d25810abd9040049be7bf4bb()\n                }\n                abi_decode(4, calldatasize())\n                let ret := fun_retrieve()\n                let memPos := allocate_unbounded()\n                let memEnd := abi_encode_uint256(memPos, ret)\n                return(memPos, sub(memEnd, memPos))\n            }\n            function validator_revert_uint256(value)\n            {\n                if iszero(eq(value, cleanup_uint256(value))) { revert(0, 0) }\n            }\n            function abi_decode_uint256(offset, end) -> value\n            {\n                value := calldataload(offset)\n                validator_revert_uint256(value)\n            }\n            function abi_decode_tuple_uint256(headStart, dataEnd) -> value0\n            {\n                if slt(sub(dataEnd, headStart), 32)\n                {\n                    revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b()\n                }\n                let offset := 0\n                value0 := abi_decode_uint256(add(headStart, offset), dataEnd)\n            }\n            function abi_encode_tuple(headStart) -> tail\n            { tail := add(headStart, 0) }\n            function external_fun_store()\n            {\n                if callvalue()\n                {\n                    revert_error_ca66f745a3ce8ff40e2ccaf1ad45db7774001b90d25810abd9040049be7bf4bb()\n                }\n                let param := abi_decode_tuple_uint256(4, calldatasize())\n                fun_store(param)\n                let memPos := allocate_unbounded()\n                let memEnd := abi_encode_tuple(memPos)\n                return(memPos, sub(memEnd, memPos))\n            }\n            function external_fun_rentNft()\n            {\n                if callvalue()\n                {\n                    revert_error_ca66f745a3ce8ff40e2ccaf1ad45db7774001b90d25810abd9040049be7bf4bb()\n                }\n                let param := abi_decode_tuple_uint256(4, calldatasize())\n                fun_rentNft(param)\n                let memPos := allocate_unbounded()\n                let memEnd := abi_encode_tuple(memPos)\n                return(memPos, sub(memEnd, memPos))\n            }\n            function external_fun_getUserNfts()\n            {\n                if callvalue()\n                {\n                    revert_error_ca66f745a3ce8ff40e2ccaf1ad45db7774001b90d25810abd9040049be7bf4bb()\n                }\n                abi_decode(4, calldatasize())\n                let ret := fun_getUserNfts()\n                let memPos := allocate_unbounded()\n                let memEnd := abi_encode_uint256(memPos, ret)\n                return(memPos, sub(memEnd, memPos))\n            }\n            function external_fun_getAvailableNfts()\n            {\n                if callvalue()\n                {\n                    revert_error_ca66f745a3ce8ff40e2ccaf1ad45db7774001b90d25810abd9040049be7bf4bb()\n                }\n                abi_decode(4, calldatasize())\n                let ret := fun_getAvailableNfts()\n                let memPos := allocate_unbounded()\n                let memEnd := abi_encode_uint256(memPos, ret)\n                return(memPos, sub(memEnd, memPos))\n            }\n            function external_fun_checkAccess()\n            {\n                if callvalue()\n                {\n                    revert_error_ca66f745a3ce8ff40e2ccaf1ad45db7774001b90d25810abd9040049be7bf4bb()\n                }\n                abi_decode(4, calldatasize())\n                let ret := fun_checkAccess()\n                let memPos := allocate_unbounded()\n                let memEnd := abi_encode_uint256(memPos, ret)\n                return(memPos, sub(memEnd, memPos))\n            }\n            function revert_error_42b3090547df1d2001c96683413b8cf91c1b902ef5e3cb8d9f6f304cf7446f74()\n            { revert(0, 0) }\n            function zero_value_for_split_uint256() -> ret\n            { ret := 0 }\n            function shift_right_0_unsigned(value) -> newValue\n            { newValue := shr(0, value) }\n            function cleanup_from_storage_uint256(value) -> cleaned\n            { cleaned := value }\n            function extract_from_storage_value_offset_uint256(slot_value) -> value\n            {\n                value := cleanup_from_storage_uint256(shift_right_0_unsigned(slot_value))\n            }\n            function read_from_storage_split_offset_uint256(slot) -> value\n            {\n                value := extract_from_storage_value_offset_uint256(sload(slot))\n            }\n            /// @ast-id 26 @src 0:528:609  \"function retrieve() public view returns (uint256){...\"\n            function fun_retrieve() -> var\n            {\n                /// @src 0:569:576  \"uint256\"\n                let zero_uint256 := zero_value_for_split_uint256()\n                var := zero_uint256\n                /// @src 0:595:601  \"number\"\n                let _1 := read_from_storage_split_offset_uint256(0x00)\n                let expr := _1\n                /// @src 0:588:601  \"return number\"\n                var := expr\n                leave\n            }\n            /// @src 0:208:977  \"contract NFTRentContract {...\"\n            function shift_left(value) -> newValue\n            { newValue := shl(0, value) }\n            function update_byte_slice_shift(value, toInsert) -> result\n            {\n                let mask := not(0)\n                toInsert := shift_left(toInsert)\n                value := and(value, not(mask))\n                result := or(value, and(toInsert, mask))\n            }\n            function identity(value) -> ret\n            { ret := value }\n            function convert_uint256_to_uint256(value) -> converted\n            {\n                converted := cleanup_uint256(identity(cleanup_uint256(value)))\n            }\n            function prepare_store_uint256(value) -> ret\n            { ret := value }\n            function update_storage_value_offset_uint256_to_uint256(slot, value)\n            {\n                let convertedValue := convert_uint256_to_uint256(value)\n                sstore(slot, update_byte_slice_shift(sload(slot), prepare_store_uint256(convertedValue)))\n            }\n            /// @ast-id 17 @src 0:375:441  \"function store(uint256 num) public {...\"\n            function fun_store(var_num)\n            {\n                /// @src 0:430:433  \"num\"\n                let _1 := var_num\n                let expr := _1\n                /// @src 0:421:433  \"number = num\"\n                update_storage_value_offset_uint256_to_uint256(0x00, expr)\n            }\n            /// @ast-id 36 @src 0:623:691  \"function rentNft(uint256 num) public {...\"\n            function fun_rentNft(var_num)\n            {\n                /// @src 0:680:683  \"num\"\n                let _1 := var_num\n                let expr := _1\n                /// @src 0:671:683  \"gameId = num\"\n                update_storage_value_offset_uint256_to_uint256(0x01, expr)\n            }\n            /// @ast-id 60 @src 0:888:972  \"function getUserNfts() public view returns (uint256){...\"\n            function fun_getUserNfts() -> var\n            {\n                /// @src 0:932:939  \"uint256\"\n                let zero_t_uint256 := zero_value_for_split_uint256()\n                var := zero_t_uint256\n                /// @src 0:958:964  \"gameId\"\n                let _1 := read_from_storage_split_offset_uint256(0x01)\n                let expr := _1\n                /// @src 0:951:964  \"return gameId\"\n                var := expr\n                leave\n            }\n            /// @ast-id 52 @src 0:791:880  \"function getAvailableNfts() public view returns (uint256){...\"\n            function fun_getAvailableNfts() -> var\n            {\n                /// @src 0:840:847  \"uint256\"\n                let zero_uint256 := zero_value_for_split_uint256()\n                var := zero_uint256\n                /// @src 0:866:872  \"gameId\"\n                let _1 := read_from_storage_split_offset_uint256(0x01)\n                let expr := _1\n                /// @src 0:859:872  \"return gameId\"\n                var := expr\n                leave\n            }\n            /// @ast-id 44 @src 0:699:783  \"function checkAccess() public view returns (uint256){...\"\n            function fun_checkAccess() -> var_\n            {\n                /// @src 0:743:750  \"uint256\"\n                let zero_uint256 := zero_value_for_split_uint256()\n                var_ := zero_uint256\n                /// @src 0:769:775  \"gameId\"\n                let _1 := read_from_storage_split_offset_uint256(0x01)\n                let expr := _1\n                /// @src 0:762:775  \"return gameId\"\n                var_ := expr\n                leave\n            }\n        }\n        data \".metadata\" hex\"a264697066735822122092a91dfcf6354fa81fa302fe6f20ef2494d5d35d0635866ddba057c934b6e40b64736f6c634300081c0033\"\n    }\n}\n",
+					"hash": "be8e0e8c0867c7196722f4ffb8a471f71d463ef5de5e109f518fbe67fb75a786",
+					"factoryDependencies": {}
+				}
+			}
+		},
+		"sources": {
+			"smart_contract/rent_contract/rent_contract.sol": {
+				"id": 0,
+				"ast": {
+					"absolutePath": "smart_contract/rent_contract/rent_contract.sol",
+					"exportedSymbols": {
+						"NFTRentContract": [
+							61
+						]
+					},
+					"id": 62,
+					"license": "GPL-3.0",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								">=",
+								"0.8",
+								".2",
+								"<",
+								"0.9",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "39:31:0"
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "NFTRentContract",
+							"contractDependencies": [],
+							"contractKind": "contract",
+							"documentation": {
+								"id": 2,
+								"nodeType": "StructuredDocumentation",
+								"src": "74:132:0",
+								"text": " @title Storage\n @dev Store & retrieve value in a variable\n @custom:dev-run-script ./scripts/deploy_with_ethers.ts"
+							},
+							"fullyImplemented": true,
+							"id": 61,
+							"linearizedBaseContracts": [
+								61
+							],
+							"name": "NFTRentContract",
+							"nameLocation": "217:15:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"constant": false,
+									"id": 4,
+									"mutability": "mutable",
+									"name": "number",
+									"nameLocation": "250:6:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 61,
+									"src": "242:14:0",
+									"stateVariable": true,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 3,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "242:7:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 6,
+									"mutability": "mutable",
+									"name": "gameId",
+									"nameLocation": "271:6:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 61,
+									"src": "263:14:0",
+									"stateVariable": true,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 5,
+										"name": "uint256",
+										"nodeType": "ElementaryTypeName",
+										"src": "263:7:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"body": {
+										"id": 16,
+										"nodeType": "Block",
+										"src": "410:31:0",
+										"statements": [
+											{
+												"expression": {
+													"id": 14,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"lValueRequested": false,
+													"leftHandSide": {
+														"id": 12,
+														"name": "number",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 4,
+														"src": "421:6:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_uint256",
+															"typeString": "uint256"
+														}
+													},
+													"nodeType": "Assignment",
+													"operator": "=",
+													"rightHandSide": {
+														"id": 13,
+														"name": "num",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 9,
+														"src": "430:3:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_uint256",
+															"typeString": "uint256"
+														}
+													},
+													"src": "421:12:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"id": 15,
+												"nodeType": "ExpressionStatement",
+												"src": "421:12:0"
+											}
+										]
+									},
+									"documentation": {
+										"id": 7,
+										"nodeType": "StructuredDocumentation",
+										"src": "286:83:0",
+										"text": " @dev Store value in variable\n @param num value to store"
+									},
+									"functionSelector": "6057361d",
+									"id": 17,
+									"implemented": true,
+									"kind": "function",
+									"modifiers": [],
+									"name": "store",
+									"nameLocation": "384:5:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 10,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 9,
+												"mutability": "mutable",
+												"name": "num",
+												"nameLocation": "398:3:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 17,
+												"src": "390:11:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 8,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "390:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "389:13:0"
+									},
+									"returnParameters": {
+										"id": 11,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "410:0:0"
+									},
+									"scope": 61,
+									"src": "375:66:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "public"
+								},
+								{
+									"body": {
+										"id": 25,
+										"nodeType": "Block",
+										"src": "577:32:0",
+										"statements": [
+											{
+												"expression": {
+													"id": 23,
+													"name": "number",
+													"nodeType": "Identifier",
+													"overloadedDeclarations": [],
+													"referencedDeclaration": 4,
+													"src": "595:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"functionReturnParameters": 22,
+												"id": 24,
+												"nodeType": "Return",
+												"src": "588:13:0"
+											}
+										]
+									},
+									"documentation": {
+										"id": 18,
+										"nodeType": "StructuredDocumentation",
+										"src": "449:73:0",
+										"text": " @dev Return value \n @return value of 'number'"
+									},
+									"functionSelector": "2e64cec1",
+									"id": 26,
+									"implemented": true,
+									"kind": "function",
+									"modifiers": [],
+									"name": "retrieve",
+									"nameLocation": "537:8:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 19,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "545:2:0"
+									},
+									"returnParameters": {
+										"id": 22,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 21,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 26,
+												"src": "569:7:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 20,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "569:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "568:9:0"
+									},
+									"scope": 61,
+									"src": "528:81:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "public"
+								},
+								{
+									"body": {
+										"id": 35,
+										"nodeType": "Block",
+										"src": "660:31:0",
+										"statements": [
+											{
+												"expression": {
+													"id": 33,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"lValueRequested": false,
+													"leftHandSide": {
+														"id": 31,
+														"name": "gameId",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 6,
+														"src": "671:6:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_uint256",
+															"typeString": "uint256"
+														}
+													},
+													"nodeType": "Assignment",
+													"operator": "=",
+													"rightHandSide": {
+														"id": 32,
+														"name": "num",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 28,
+														"src": "680:3:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_uint256",
+															"typeString": "uint256"
+														}
+													},
+													"src": "671:12:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"id": 34,
+												"nodeType": "ExpressionStatement",
+												"src": "671:12:0"
+											}
+										]
+									},
+									"functionSelector": "73c6dee9",
+									"id": 36,
+									"implemented": true,
+									"kind": "function",
+									"modifiers": [],
+									"name": "rentNft",
+									"nameLocation": "632:7:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 29,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 28,
+												"mutability": "mutable",
+												"name": "num",
+												"nameLocation": "648:3:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 36,
+												"src": "640:11:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 27,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "640:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "639:13:0"
+									},
+									"returnParameters": {
+										"id": 30,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "660:0:0"
+									},
+									"scope": 61,
+									"src": "623:68:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "public"
+								},
+								{
+									"body": {
+										"id": 43,
+										"nodeType": "Block",
+										"src": "751:32:0",
+										"statements": [
+											{
+												"expression": {
+													"id": 41,
+													"name": "gameId",
+													"nodeType": "Identifier",
+													"overloadedDeclarations": [],
+													"referencedDeclaration": 6,
+													"src": "769:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"functionReturnParameters": 40,
+												"id": 42,
+												"nodeType": "Return",
+												"src": "762:13:0"
+											}
+										]
+									},
+									"functionSelector": "ecb10135",
+									"id": 44,
+									"implemented": true,
+									"kind": "function",
+									"modifiers": [],
+									"name": "checkAccess",
+									"nameLocation": "708:11:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 37,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "719:2:0"
+									},
+									"returnParameters": {
+										"id": 40,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 39,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 44,
+												"src": "743:7:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 38,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "743:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "742:9:0"
+									},
+									"scope": 61,
+									"src": "699:84:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "public"
+								},
+								{
+									"body": {
+										"id": 51,
+										"nodeType": "Block",
+										"src": "848:32:0",
+										"statements": [
+											{
+												"expression": {
+													"id": 49,
+													"name": "gameId",
+													"nodeType": "Identifier",
+													"overloadedDeclarations": [],
+													"referencedDeclaration": 6,
+													"src": "866:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"functionReturnParameters": 48,
+												"id": 50,
+												"nodeType": "Return",
+												"src": "859:13:0"
+											}
+										]
+									},
+									"functionSelector": "ea998004",
+									"id": 52,
+									"implemented": true,
+									"kind": "function",
+									"modifiers": [],
+									"name": "getAvailableNfts",
+									"nameLocation": "800:16:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 45,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "816:2:0"
+									},
+									"returnParameters": {
+										"id": 48,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 47,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 52,
+												"src": "840:7:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 46,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "840:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "839:9:0"
+									},
+									"scope": 61,
+									"src": "791:89:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "public"
+								},
+								{
+									"body": {
+										"id": 59,
+										"nodeType": "Block",
+										"src": "940:32:0",
+										"statements": [
+											{
+												"expression": {
+													"id": 57,
+													"name": "gameId",
+													"nodeType": "Identifier",
+													"overloadedDeclarations": [],
+													"referencedDeclaration": 6,
+													"src": "958:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"functionReturnParameters": 56,
+												"id": 58,
+												"nodeType": "Return",
+												"src": "951:13:0"
+											}
+										]
+									},
+									"functionSelector": "840a2ab8",
+									"id": 60,
+									"implemented": true,
+									"kind": "function",
+									"modifiers": [],
+									"name": "getUserNfts",
+									"nameLocation": "897:11:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 53,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "908:2:0"
+									},
+									"returnParameters": {
+										"id": 56,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 55,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 60,
+												"src": "932:7:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 54,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "932:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "931:9:0"
+									},
+									"scope": 61,
+									"src": "888:84:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "public"
+								}
+							],
+							"scope": 62,
+							"src": "208:769:0",
+							"usedErrors": [],
+							"usedEvents": []
+						}
+					],
+					"src": "39:938:0"
+				}
+			}
+		},
+		"errors": [],
+		"version": "0.8.28",
+		"long_version": "0.8.28+commit.7893614a.Emscripten.clang",
+		"revive_version": "0.1.0-dev.12+commit.66f9a4d.llvm-18.1.8"
+	}
+}
