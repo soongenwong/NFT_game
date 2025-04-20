@@ -38,6 +38,18 @@ NFT Rental Game provides a **one-stop solution** leveraging Polkadot's Asset Hub
 
 ---
 
+## Demo
+
+https://youtu.be/2OA_39g3WRo
+
+https://youtu.be/bKh2ec79590
+
+https://youtu.be/NXpzwWGhkas
+
+Watch how a user connects their Polkadot wallet, and our system verifies their time-limited NFT access pass against the on-chain smart contract to grant game access.
+
+---
+
 ## Key Features
 
 *   🔑 **Time-Limited NFTs:** Granular control over access duration (hours, days, events).
@@ -52,22 +64,10 @@ NFT Rental Game provides a **one-stop solution** leveraging Polkadot's Asset Hub
 ## Technology Stack
 
 *   **Blockchain:** Polkadot Asset Hub
-*   **Smart Contract Language:** `ink!` (Rust-based WASM) / `Solang` (Solidity for WASM) - *Specify which one you used!*
+*   **Smart Contract Language:** `Solang` (Solidity for WASM)
 *   **NFT Standard:** `pallet-nfts` (Native on Asset Hub)
 *   **Frontend:** React, Javascript, TailwindCSS
 *   **Wallet Integration:** Polkadot
-
----
-
-## Demo
-
-https://youtu.be/2OA_39g3WRo
-
-https://youtu.be/bKh2ec79590
-
-https://youtu.be/NXpzwWGhkas
-
-Watch how a user connects their Polkadot wallet, and our system verifies their time-limited NFT access pass against the on-chain smart contract to grant game access.
 
 ---
 
