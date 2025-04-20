@@ -86,13 +86,12 @@ Watch how a user connects their Polkadot wallet, and our system verifies their t
 
 Our custom smart contract is the core logic engine.
 
-*   **Location:** Deployed on Polkadot Asset Hub ([Link to contract on Subscan/PolkadotJS Apps if available - Testnet link is fine!])
-*   **Language:** Written in [`ink!`/`Solang`] - *Choose one*.
+*   **Location:** Deployed on Polkadot Asset Hub 
+*   **Language:** Written in [`Solang`] 
 *   **Key Functions:**
     *   `mint_access_nft(duration, owner)`: Creates a new time-locked NFT. (May be restricted)
     *   `check_access(nft_id)`: Verifies if the NFT grants access *at the current time*. This is the primary function called by games.
     *   `get_expiry_time(nft_id)`: Returns the calculated expiration time for an NFT.
-*   **Source Code:** [Link to the `/contracts` or relevant directory in your repository]
 
 **Note:** This contract goes beyond standard NFT minting by implementing specific time-verification logic crucial for the use case.
 
@@ -138,14 +137,13 @@ https://www.canva.com/design/DAGlGmT2YxU/Yjc9Ar6ehF0LTls6HYeb-Q/edit#
 2.  Navigate to the project directory: `cd [project-name]`
 3.  Install dependencies:
     *   Frontend: `cd frontend && npm install` (or yarn)
-    *   Contracts: Follow `ink!` / `Solang` setup guides.
-4.  [Add specific build/run commands for frontend and contract deployment/testing]
+    *   Contracts: Follow `Solang` setup guides.
 
 ---
 
 ## Contributing
 
-We welcome contributions! Please see our `CONTRIBUTING.md` file for guidelines. (Optional: Create this file if you want contributions).
+We welcome contributions! Please see our `CONTRIBUTING.md` file for guidelines.
 
 ---
 
