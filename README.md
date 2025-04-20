@@ -4,7 +4,7 @@
 
 ## Elevator Pitch
 
-[Your Project Name] revolutionizes game access by transforming playtime into **secure, time-limited NFTs** on the Polkadot Asset Hub. Players gain true ownership and flexible access, while developers unlock innovative monetization models and enhanced security, all powered by our custom smart contract.
+NFT Rental Game revolutionizes game access by transforming playtime into **secure, time-limited NFTs** on the Polkadot Asset Hub. Players gain true ownership and flexible access, while developers unlock innovative monetization models and enhanced security, all powered by our custom smart contract.
 
 ---
 
@@ -26,7 +26,7 @@ The current digital game market faces challenges for both players and developers
 
 ## Our Solution: Time-Bound NFT Game Keys
 
-[Your Project Name] provides a **one-stop solution** leveraging Polkadot's Asset Hub:
+NFT Rental Game provides a **one-stop solution** leveraging Polkadot's Asset Hub:
 
 1.  **NFTs as Access Keys:** We utilize NFTs (`pallet-nfts` standard) on Asset Hub to represent **time-limited access rights** to a game.
 2.  **Custom Smart Contract:** Our unique `ink!` (or `Solang`, if applicable) smart contract deployed on Asset Hub manages the core **time-lock verification logic**. It checks if an NFT is currently valid for access based on its mint time and duration.
@@ -118,11 +118,12 @@ See our presentation slides or project documentation for the extended roadmap (1
 
 ## The Team
 
-*   Soong En Wong - [Role, e.g., Smart Contract Dev]
-*   Ruben - [Role, e.g., Frontend Dev]
-*   valdis - [Role, e.g., UI/UX Design]
-*   Rayn
-*   Gio
+*   Soong En Wong - Imperial 2nd year
+*   Ruben Vorster - Imperial 3rd year
+*   Valdis Lenkevics - Data Engineer (Trading)
+*   Rayn Lakha - Incoming @ Oxford
+*   Giorgaki Potsi - Data Analyst (Insurance)
+
 
 **Presentation Slides**
 https://www.canva.com/design/DAGlGmT2YxU/Yjc9Ar6ehF0LTls6HYeb-Q/edit#
