@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:disabled {
+            background-color: #e7e7e7;
+            cursor: not-allowed;
+        }
+        .score {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Demo Game!</h1>
+    <p id="gameStatus">You need to rent an NFT to access the game.</p>
+    
+    <!-- Access button will be shown only when the user has access -->
+    <button id="gameButton" class="button" style="display:none;">Click to Increase Score</button>
+    
+    <!-- Score area -->
+    <div class="score">
+        Score: <span id="score">0</span>
+    </div>
+
+    <script>
+        // Simulating NFT access with a mock value (true/false).
+        // Later, this should be replaced with real smart contract calls.
+        let hasAccess = true; // Change this to `true` to test game access.
+
+        // Initialize score
+        let score = 0;
+
+        // DOM Elements
+        const gameStatus = document.getElementById('gameStatus');
+        const gameButton = document.getElementById('gameButton');
+        const scoreDisplay = document.getElementById('score');
+
+        // Check access to the game
+        function checkAccess() {
+            if (hasAccess) {
+                gameStatus.textContent = "You have access to the game!";
+                gameButton.style.display = "inline-block"; // Show game button
+            } else {
+                gameStatus.textContent = "You need to rent an NFT to access the game.";
+                gameButton.style.display = "none"; // Hide game button
+            }
+        }
+
+        // Game button click function
+        function increaseScore() {
+            score++;
+            scoreDisplay.textContent = score;
+        }
+
+        // Game button click event
+        gameButton.addEventListener('click', increaseScore);
+
+        // Run access check when the page loads
+        checkAccess();
+    </script>
+</body>
+</html>
