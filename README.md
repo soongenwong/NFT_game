@@ -112,8 +112,6 @@ Our custom smart contract is the core logic engine.
 *   **Month 3:** Begin Pilot Integration with 1+ game | Build Basic Developer Tools
 *   **Month 6:** Launch Audited V1 Platform (Mainnet/Testnet) | Enable Basic NFT Trading
 
-See our presentation slides or project documentation for the extended roadmap (1-3 years).
-
 ---
 
 ## The Team
