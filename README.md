@@ -61,9 +61,11 @@ NFT Rental Game provides a **one-stop solution** leveraging Polkadot's Asset Hub
 
 ## Demo
 
-**(Highly Recommended: Embed an animated GIF or link to a short video showcasing the workflow: e.g., user connects wallet -> game checks NFT via contract -> access granted/denied with timer)**
+https://youtu.be/2OA_39g3WRo
 
-[Link to Demo Video/GIF]
+https://youtu.be/bKh2ec79590
+
+https://youtu.be/NXpzwWGhkas
 
 Watch how a user connects their Polkadot wallet, and our system verifies their time-limited NFT access pass against the on-chain smart contract to grant game access.
 
